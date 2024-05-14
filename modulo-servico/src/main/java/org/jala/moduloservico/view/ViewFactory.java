@@ -73,6 +73,7 @@ public class ViewFactory {
 
 
 
+
     private static void criarStage(FXMLLoader loader) {
         Scene scene = null;
         try{
@@ -85,5 +86,7 @@ public class ViewFactory {
         stage.setTitle("JalaBank");
         stage.show();
     }
+
+
 
 }
