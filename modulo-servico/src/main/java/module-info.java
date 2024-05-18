@@ -12,6 +12,7 @@ module org.jala.moduloservico {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires caelum.stella.boleto;
 
     opens org.jala.moduloservico to javafx.fxml;
     exports org.jala.moduloservico;
