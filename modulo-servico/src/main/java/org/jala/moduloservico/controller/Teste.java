@@ -13,15 +13,15 @@ public class Teste {
                 .comVencimento(2, 5, 2008);
 
         Endereco enderecoBeneficiario = Endereco.novoEndereco()
-                .comLogradouro("Av das Empresas, 555")
+                    .comLogradouro(" Av. Melchor Pérez de Olguín 2643, Cochabamba, Bolívia")
                 .comBairro("Bairro Grande")
                 .comCep("01234-555")
-                .comCidade("São Paulo")
-                .comUf("SP");
+                .comCidade("Cochabamba")
+                .comUf("BO");
 
         //Quem emite o boleto
         Beneficiario beneficiario = Beneficiario.novoBeneficiario()
-                .comNomeBeneficiario("Oswaldo")
+                .comNomeBeneficiario("JalaBank")
                 .comAgencia("1824").
                 comDigitoAgencia("4")
                 .comCodigoBeneficiario("76000")

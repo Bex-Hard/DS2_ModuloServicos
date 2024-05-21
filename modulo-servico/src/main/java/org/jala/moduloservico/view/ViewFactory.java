@@ -8,45 +8,74 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import org.jala.moduloservico.controller.ClienteController;
-import org.jala.moduloservico.controller.MenuEsquerdoController;
+import org.jala.moduloservico.controller.MenuClienteController;
+import org.jala.moduloservico.model.Model;
 
 
 public class ViewFactory {
 
-    private final StringProperty selecionarServico;
+    private final StringProperty selecionarOpcaoCliente;
 
     private AnchorPane menuServicosView;
-    private AnchorPane pagarBoletoView;
+    private AnchorPane transferenciaView;
     private AnchorPane contaView;
     private AnchorPane emprestimoView;
     private AnchorPane cartoesView;
-    private AnchorPane TransferenciaView;
 
-    public StringProperty getSelecionarServico() {
-        return selecionarServico;
-    }
+    private AnchorPane pagarBoletoView;
+    private AnchorPane confirmarBoletoView;
+
 
     public ViewFactory( ) {
-        this.selecionarServico = new SimpleStringProperty("");
+        this.selecionarOpcaoCliente = new SimpleStringProperty("");
     }
 
-    public AnchorPane getPagarBoletoView(){
-        if (pagarBoletoView == null){
+    public StringProperty getSelecionarOpcaoCliente() {
+        return selecionarOpcaoCliente;
+    }
+
+    //Menu Esquerdo de Opções do Cliente
+
+    public AnchorPane getContaView(){
+        if (emprestimoView == null){
             try {
-                pagarBoletoView = new FXMLLoader(getClass().getResource("/Fxml/PagarBoleto")).load();
+                emprestimoView = new FXMLLoader(getClass().getResource("/Fxml/OutrosServicos/Conta.fxml")).load();
             }
             catch (Exception e){
                 e.printStackTrace();
             }
         }
-        return pagarBoletoView;
+        return emprestimoView;
     }
 
+    public AnchorPane getCartoesView(){
+        if (cartoesView == null){
+            try {
+                cartoesView = new FXMLLoader(getClass().getResource("/Fxml/OutrosServicos/MeusCartoes.fxml")).load();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return cartoesView;
+    }
+
+    public AnchorPane getEmprestimoView(){
+        if (contaView == null){
+            try {
+                contaView = new FXMLLoader(getClass().getResource("/Fxml/OutrosServicos/Emprestimos.fxml")).load();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return contaView;
+    }
 
     public AnchorPane getMenuServicosView(){
         if (menuServicosView == null){
             try {
-                menuServicosView = new FXMLLoader(getClass().getResource("/Fxml/MenuServicos")).load();
+                menuServicosView = new FXMLLoader(getClass().getResource("/Fxml/MenuServicos.fxml")).load();
             }
             catch (Exception e){
                 e.printStackTrace();
@@ -55,24 +84,52 @@ public class ViewFactory {
         return menuServicosView;
     }
 
+    public AnchorPane getTransferenciaView() {
+        if (transferenciaView == null){
+            try {
+                transferenciaView = new FXMLLoader(getClass().getResource("/Fxml/OutrosServicos/Transferencias.fxml")).load();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        return transferenciaView;
+    }
+
+    //Pagamento de boleto
+
+    public AnchorPane getPagarBoletoView(){
+        if (pagarBoletoView == null){
+            try {
+                pagarBoletoView = new FXMLLoader(getClass().getResource("/Fxml/Boleto/PagarBoleto.fxml")).load();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return pagarBoletoView;
+    }
+    public AnchorPane getConfirmaPagarBoletoView(){
+        if (confirmarBoletoView == null){
+            try {
+                confirmarBoletoView = new FXMLLoader(getClass().getResource("/Fxml/Boleto/FinalizaBoleto.fxml")).load();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return confirmarBoletoView;
+    }
+
+
+
     public void mostrarClienteMenu(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/MenuCliente.fxml"));
-        MenuEsquerdoController menuEsquerdoController = new MenuEsquerdoController();
-        loader.setController(menuEsquerdoController);
+        MenuClienteController menuClienteController = new MenuClienteController();
+        loader.setController(menuClienteController);
         criarStage(loader);
     }
-
-    public void mostrarServicoBoleto(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/PagarBoleto.fxml"));
-        ClienteController clienteController = new ClienteController();
-        loader.setController(clienteController);
-        criarStage(loader);
-    }
-
-
-
-
-
 
     private static void criarStage(FXMLLoader loader) {
         Scene scene = null;
@@ -85,6 +142,12 @@ public class ViewFactory {
         stage.setScene(scene);
         stage.setTitle("JalaBank");
         stage.show();
+    }
+
+
+    public void atualizarOpcao(String botaoOpcao){
+        Model.getInstance().getViewFactory().getSelecionarOpcaoCliente().set(botaoOpcao);
+
     }
 
 

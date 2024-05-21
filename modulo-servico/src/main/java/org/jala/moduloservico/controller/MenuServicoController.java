@@ -16,10 +16,16 @@ public class MenuServicoController implements Initializable {
     public ListView lista_historico;
     public Button bilhete_botao;
     public Button telefone_botao;
+    public Button boleto_botao;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        addListeners();
 
+
+    }
+    private void addListeners(){
+        boleto_botao.setOnAction(event -> Model.getInstance().getViewFactory().atualizarOpcao("Boleto"));
     }
 
 }

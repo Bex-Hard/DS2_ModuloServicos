@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-<?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            prefHeight="511.0" prefWidth="793.0">
+<AnchorPane prefHeight="500.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="384.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minha Conta" />
+   </children>
 </AnchorPane>

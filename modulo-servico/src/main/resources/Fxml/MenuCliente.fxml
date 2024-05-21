@@ -8,6 +8,7 @@
     <left>
         <fx:include source="MenuEsquerdo.fxml"/>
     </left>
+
     <center>
         <fx:include source="MenuServicos.fxml"/>
     </center>
