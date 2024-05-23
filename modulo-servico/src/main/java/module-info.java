@@ -19,8 +19,10 @@ module org.jala.moduloservico {
     exports org.jala.moduloservico.controller;
     exports org.jala.moduloservico.view;
     exports org.jala.moduloservico.model;
-
-
+    exports org.jala.moduloservico.controller.service;
+    opens org.jala.moduloservico.controller.service to javafx.fxml;
+    exports org.jala.moduloservico.model.DTO;
+    opens org.jala.moduloservico.model.DTO to javafx.fxml;
 
 
 }
