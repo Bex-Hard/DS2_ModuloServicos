@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import org.jala.moduloservico.controller.ClienteController;
 import org.jala.moduloservico.controller.MenuClienteController;
 import org.jala.moduloservico.model.Model;
 

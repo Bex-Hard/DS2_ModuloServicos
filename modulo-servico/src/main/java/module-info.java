@@ -13,16 +13,16 @@ module org.jala.moduloservico {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires caelum.stella.boleto;
-    requires org.testng;
 
     opens org.jala.moduloservico to javafx.fxml;
     exports org.jala.moduloservico;
     exports org.jala.moduloservico.controller;
     exports org.jala.moduloservico.view;
     exports org.jala.moduloservico.model;
-
-    exports org.jala.moduloservico.model.DAO to org.testng;
-
+    exports org.jala.moduloservico.controller.service;
+    opens org.jala.moduloservico.controller.service to javafx.fxml;
+    exports org.jala.moduloservico.model.DTO;
+    opens org.jala.moduloservico.model.DTO to javafx.fxml;
 
 
 }
