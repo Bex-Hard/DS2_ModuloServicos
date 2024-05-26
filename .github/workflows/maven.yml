@@ -17,6 +17,7 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
       - name: Build with Maven
+        working-directory: ./home/runner/work//home/runner/work/DS2_ModuloServicos/modulo-servico
         run: mvn clean install
 
   test:
@@ -30,14 +31,16 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
       - name: Build with Maven
+        working-directory: ./home/runner/work//home/runner/work/DS2_ModuloServicos/modulo-servico
         run: mvn test
       - name: Generate JaCoCo report
+        working-directory: ./home/runner/work//home/runner/work/DS2_ModuloServicos/modulo-servico
         run: mvn jacoco:report
       - name: Upload coverage report
         uses: actions/upload-artifact@v2
         with:
           name: coverage_report
-          path: target/site/jacoco/jacoco.xml
+          path: ./path/to/your/project/target/site/jacoco/jacoco.xml
 
   build:
     runs-on: ubuntu-latest
@@ -50,9 +53,10 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
       - name: Build with Maven
+        working-directory: ./home/runner/work//home/runner/work/DS2_ModuloServicos/modulo-servico
         run: mvn package
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           name: app
-          path: target/*.jar
+          path: ./path/to/your/project/target/*.jar
