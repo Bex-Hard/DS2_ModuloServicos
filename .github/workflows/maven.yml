@@ -16,8 +16,23 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
+      - name: Set up Maven settings
+        run: |
+          mkdir -p ~/.m2
+          echo '<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                              https://maven.apache.org/xsd/settings-1.0.0.xsd">
+            <mirrors>
+              <mirror>
+                <id>maven-default-http-blocker</id>
+                <mirrorOf>jasperreports</mirrorOf>
+                <url>https://jasperreports.sourceforge.net/maven2</url>
+                <blocked>false</blocked>
+              </mirror>
+            </mirrors>
+          </settings>' > ~/.m2/settings.xml
       - name: Build with Maven
-        working-directory: ./modulo-servico
         run: mvn clean install
 
   test:
@@ -30,17 +45,31 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
+      - name: Set up Maven settings
+        run: |
+          mkdir -p ~/.m2
+          echo '<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                              https://maven.apache.org/xsd/settings-1.0.0.xsd">
+            <mirrors>
+              <mirror>
+                <id>maven-default-http-blocker</id>
+                <mirrorOf>jasperreports</mirrorOf>
+                <url>https://jasperreports.sourceforge.net/maven2</url>
+                <blocked>false</blocked>
+              </mirror>
+            </mirrors>
+          </settings>' > ~/.m2/settings.xml
       - name: Build with Maven
-        working-directory: ./modulo-servico
         run: mvn test
       - name: Generate JaCoCo report
-        working-directory: ./modulo-servico
         run: mvn jacoco:report
       - name: Upload coverage report
         uses: actions/upload-artifact@v2
         with:
           name: coverage_report
-          path: ./path/to/your/project/target/site/jacoco/jacoco.xml
+          path: target/site/jacoco/jacoco.xml
 
   build:
     runs-on: ubuntu-latest
@@ -52,11 +81,26 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
+      - name: Set up Maven settings
+        run: |
+          mkdir -p ~/.m2
+          echo '<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                              https://maven.apache.org/xsd/settings-1.0.0.xsd">
+            <mirrors>
+              <mirror>
+                <id>maven-default-http-blocker</id>
+                <mirrorOf>jasperreports</mirrorOf>
+                <url>https://jasperreports.sourceforge.net/maven2</url>
+                <blocked>false</blocked>
+              </mirror>
+            </mirrors>
+          </settings>' > ~/.m2/settings.xml
       - name: Build with Maven
-        working-directory: ./modulo-servico
         run: mvn package
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           name: app
-          path: ./path/to/your/project/target/*.jar
+          path: target/*.jar
