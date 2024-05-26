@@ -19,6 +19,11 @@ public class BoletoService {
     private Banco banco;
     private Boleto boleto;
     private Cliente cliente;
+
+    public Boleto getBoleto() {
+        return boleto;
+    }
+
     private ClienteDAO clienteDAO;
     private GeradorDeBoleto gerador;
 
@@ -81,7 +86,7 @@ public class BoletoService {
                 .comNumeroDoDocumento("1234")
                 .comInstrucoes("instrucao 1", "instrucao 2", "instrucao 3", "instrucao 4", "instrucao 5")
                 .comLocaisDePagamento("local 1", "local 2");
-        gerarPDFBoleto();
+        //gerarPDFBoleto();
         return boleto;
     }
 
