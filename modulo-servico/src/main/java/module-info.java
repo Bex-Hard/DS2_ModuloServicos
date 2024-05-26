@@ -13,6 +13,7 @@ module org.jala.moduloservico {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires caelum.stella.boleto;
+    requires org.testng;
 
     opens org.jala.moduloservico to javafx.fxml;
     exports org.jala.moduloservico;
@@ -20,6 +21,7 @@ module org.jala.moduloservico {
     exports org.jala.moduloservico.view;
     exports org.jala.moduloservico.model;
 
+    exports org.jala.moduloservico.model.DAO to org.testng;
 
 
 
