@@ -33,6 +33,7 @@ jobs:
             </mirrors>
           </settings>' > ~/.m2/settings.xml
       - name: Build with Maven
+        working-directory: ./modulo-servico
         run: mvn clean install
 
   test:
@@ -62,14 +63,16 @@ jobs:
             </mirrors>
           </settings>' > ~/.m2/settings.xml
       - name: Build with Maven
+        working-directory: ./modulo-servico
         run: mvn test
       - name: Generate JaCoCo report
+        working-directory: ./modulo-servico
         run: mvn jacoco:report
       - name: Upload coverage report
         uses: actions/upload-artifact@v2
         with:
           name: coverage_report
-          path: target/site/jacoco/jacoco.xml
+          path: ./modulo-servico/target/site/jacoco/jacoco.xml
 
   build:
     runs-on: ubuntu-latest
@@ -98,9 +101,10 @@ jobs:
             </mirrors>
           </settings>' > ~/.m2/settings.xml
       - name: Build with Maven
+        working-directory: ./modulo-servico
         run: mvn package
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           name: app
-          path: target/*.jar
+          path: ./modulo-servico/target/*.jar
