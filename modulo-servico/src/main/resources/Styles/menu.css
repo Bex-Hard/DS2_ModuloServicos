@@ -1,33 +1,33 @@
 /*  Tela servico */
-.menu{
-    -fx-background-color: #EEEEEE;
-}
+/*.menu{*/
+/*    -fx-background-color: #EEEEEE;*/
+/*}*/
 
-.menu_container{
-    -fx-background-color: #f50069;
+/*.menu_container{*/
+/*    -fx-background-color: #f50069;*/
 
-}
+/*}*/
 
-.menu_container_boleto{
-    -fx-background-color: #868795;
-}
+/*.menu_container_boleto{*/
+/*    -fx-background-color: #868795;*/
+/*}*/
 
-.botao_boleto{
-    -fx-background-color: #0faed5;
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-font-family: "Arial";
-    -fx-padding: 8px 16px;
-    -fx-border-radius: 20px;
-    -fx-background-radius: 20px;
-    -fx-border-color: transparent;
-    -fx-cursor: hand;
+/*.botao_boleto{*/
+/*    -fx-background-color: #0faed5;*/
+/*    -fx-text-fill: white;*/
+/*    -fx-font-size: 14px;*/
+/*    -fx-font-family: "Arial";*/
+/*    -fx-padding: 8px 16px;*/
+/*    -fx-border-radius: 20px;*/
+/*    -fx-background-radius: 20px;*/
+/*    -fx-border-color: transparent;*/
+/*    -fx-cursor: hand;*/
 
-}
-.botao_boleto:hover {
-    -fx-background-color: #a04545; /* Cor de fundo ao passar o mouse */
-}
+/*}*/
+/*.botao_boleto:hover {*/
+/*    -fx-background-color: #a04545; !* Cor de fundo ao passar o mouse *!*/
+/*}*/
 
-.botao_boleto:pressed {
-    -fx-background-color: #8e3838; /* Cor de fundo ao pressionar */
-}
+/*.botao_boleto:pressed {*/
+/*    -fx-background-color: #8e3838; !* Cor de fundo ao pressionar *!*/
+/*}*/

@@ -6,7 +6,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="120.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jala.moduloservico.controller.MenuEsquerdoController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="120.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.jala.moduloservico.controller.MenuEsquerdoController">
    <AnchorPane prefHeight="500.0" prefWidth="120.0">
       <VBox layoutY="115.0" prefHeight="164.0" prefWidth="120.0">
          <Button fx:id="cartoes_botao" mnemonicParsing="false" text="Meus Cartoes" />
