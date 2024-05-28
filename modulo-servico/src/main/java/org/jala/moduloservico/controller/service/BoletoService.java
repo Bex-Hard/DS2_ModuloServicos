@@ -7,6 +7,7 @@ import org.jala.moduloservico.model.Cliente;
 import org.jala.moduloservico.model.DAO.ClienteDAO;
 import org.jala.moduloservico.model.DTO.BoletoDTO;
 
+import java.time.LocalDate;
 import java.util.Calendar;
 
 public class BoletoService {
@@ -20,7 +21,11 @@ public class BoletoService {
     private Boleto boleto;
     private Cliente cliente;
     private ClienteDAO clienteDAO;
-    private GeradorDeBoleto gerador;
+
+
+    public Boleto getBoleto() {
+        return boleto;
+    }
 
 
     public BoletoService() {
@@ -31,16 +36,6 @@ public class BoletoService {
     }
 
     public Boleto gerarBoleto(BoletoDTO boletoDTO){
-        Calendar calendar = Calendar.getInstance();
-        int dia = calendar.get(Calendar.DAY_OF_MONTH);
-        int mes = calendar.get(Calendar.MONTH) + 1;
-        int ano = calendar.get(Calendar.YEAR);
-
-
-        datas = Datas.novasDatas()
-                .comDocumento(dia, mes, ano)
-                .comProcessamento(dia, mes, ano)
-                .comVencimento(dia, mes+1, ano);
 
         enderecoBeneficiario = Endereco.novoEndereco()
                 .comLogradouro(" Av. Melchor Pérez de Olguín 2643, Cochabamba, Bolívia")
@@ -72,16 +67,16 @@ public class BoletoService {
                 .comDocumento(cliente.getCpf())
                 .comEndereco(enderecoPagador);
 
+
         boleto = Boleto.novoBoleto()
                 .comBanco(banco)
-                .comDatas(datas)
+                .comDatas(setDatas(boletoDTO.getDataBoteto(),boletoDTO.getDataVencimentoBoleto()))
                 .comBeneficiario(beneficiario)
                 .comPagador(pagador)
                 .comValorBoleto(boletoDTO.getValorBoleto())
                 .comNumeroDoDocumento("1234")
-                .comInstrucoes("instrucao 1", "instrucao 2", "instrucao 3", "instrucao 4", "instrucao 5")
+                .comInstrucoes("Pagamento via App JalaBanl")
                 .comLocaisDePagamento("local 1", "local 2");
-        gerarPDFBoleto();
         return boleto;
     }
 
@@ -90,9 +85,23 @@ public class BoletoService {
         gerador.geraPDF("Boleto_JalaBank.pdf");
     }
 
-    private void gerarDataBoleto (){
+    private Datas setDatas(LocalDate criacaoBoleto, LocalDate vencimentoBoleto){
+        Calendar calendar = Calendar.getInstance();
+        int dia = calendar.get(Calendar.DAY_OF_MONTH);
+        int mes = calendar.get(Calendar.MONTH) + 1;
+        int ano = calendar.get(Calendar.YEAR);
 
+
+        if (criacaoBoleto != null && vencimentoBoleto != null){
+            return datas = Datas.novasDatas()
+                    .comDocumento(criacaoBoleto.getDayOfMonth(), criacaoBoleto.getMonthValue(), criacaoBoleto.getYear())
+                    .comProcessamento(dia, mes, ano)
+                    .comVencimento(vencimentoBoleto.getDayOfMonth(), vencimentoBoleto.getMonthValue() , vencimentoBoleto.getYear());
+        }
+        return null;
     }
+
+
 
 
 }

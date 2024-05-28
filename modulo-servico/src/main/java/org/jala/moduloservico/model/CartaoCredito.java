@@ -8,6 +8,12 @@ public class CartaoCredito {
     public CartaoCredito() {
     }
 
+    public CartaoCredito(String numero, double limite) {
+        this.numero = numero;
+        this.limite = limite;
+        this.saldoUtilizado = 0;
+    }
+
     public void setNumero(String numero) {
         this.numero = numero;
     }
@@ -18,12 +24,6 @@ public class CartaoCredito {
 
     public void setSaldoUtilizado(double saldoUtilizado) {
         this.saldoUtilizado = saldoUtilizado;
-    }
-
-    public CartaoCredito(String numero, double limite) {
-        this.numero = numero;
-        this.limite = limite;
-        this.saldoUtilizado = 0;
     }
 
     public String getNumero() {

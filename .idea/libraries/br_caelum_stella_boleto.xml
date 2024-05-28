@@ -1,0 +1,25 @@
+<component name="libraryTable">
+  <library name="br.caelum.stella.boleto" type="repository">
+    <properties maven-id="br.com.caelum.stella:caelum-stella-boleto:2.1.6" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/br/com/caelum/stella/caelum-stella-boleto/2.1.6/caelum-stella-boleto-2.1.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/br/com/caelum/stella/caelum-stella-core/2.1.6/caelum-stella-core-2.1.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/net/sf/jasperreports/jasperreports/6.21.3/jasperreports-6.21.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-digester/commons-digester/2.1/commons-digester-2.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-collections4/4.2/commons-collections4-4.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/librepdf/openpdf/1.3.32/openpdf-1.3.32.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/jfree/jcommon/1.0.23/jcommon-1.0.23.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/jfree/jfreechart/1.0.19/jfreechart-1.0.19.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/jdt/ecj/3.21.0/ecj-3.21.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/dataformat/jackson-dataformat-xml/2.15.3/jackson-dataformat-xml-2.15.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/woodstox/stax2-api/4.2.1/stax2-api-4.2.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/woodstox/woodstox-core/6.5.1/woodstox-core-6.5.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/net/sourceforge/barbecue/barbecue/1.5-beta1/barbecue-1.5-beta1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

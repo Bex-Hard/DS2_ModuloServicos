@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Separator?>
@@ -9,24 +8,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.text.TextFlow?>
 
 <AnchorPane prefHeight="500.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jala.moduloservico.controller.BoletoController">
    <Text layoutX="75.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pagar Boleto" />
    <VBox layoutX="19.0" layoutY="66.0" prefHeight="373.0" prefWidth="147.0" styleClass="ma">
-      <CheckBox fx:id="data_emissao_boleto_hoje" mnemonicParsing="false" text="Hoje" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Data do boleto" />
       <DatePicker fx:id="data_boleto" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Data de vencimento" />
-      <DatePicker fx:id="data_vencimento" />
+      <DatePicker fx:id="data_vencimento_vencimento" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Valor do Boleto" />
       <TextField fx:id="valor_boleto" prefHeight="26.0" prefWidth="112.0" promptText="R$" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Forma de Pagamento" />
       <ChoiceBox fx:id="forma_pagmento" prefWidth="150.0" />
+      <Text fx:id="erro_campos" strokeType="OUTSIDE" strokeWidth="0.0" text="Campos Invalidos" visible="false" />
       <Button fx:id="gerar_boleto" mnemonicParsing="false" text="Gerar Boleto" />
    </VBox>
-   <VBox layoutX="255.0" layoutY="41.0" prefHeight="402.0" prefWidth="472.0">
-      <TextFlow fx:id="dados_boleto" prefHeight="403.0" prefWidth="472.0" />
+   <VBox layoutX="256.0" layoutY="40.0" prefHeight="218.0" prefWidth="476.0">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pagador/CPF/CNPJ/Endereço:" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pagador/Avalista:" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nosso Número:" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
    </VBox>
    <Separator layoutX="213.0" layoutY="33.0" orientation="VERTICAL" prefHeight="453.0" prefWidth="0.0" />
 </AnchorPane>

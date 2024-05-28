@@ -20,7 +20,6 @@ public class ViewFactory {
     private AnchorPane contaView;
     private AnchorPane emprestimoView;
     private AnchorPane cartoesView;
-
     private AnchorPane pagarBoletoView;
     private AnchorPane confirmarBoletoView;
 
