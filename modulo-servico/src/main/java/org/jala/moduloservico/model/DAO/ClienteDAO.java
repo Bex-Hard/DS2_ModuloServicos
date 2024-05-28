@@ -24,7 +24,7 @@ public class ClienteDAO {
 
             if (resultSet.next()) {
                 cliente = new Cliente();
-                cliente.setId(resultSet.getInt("id"));
+//                cliente.setId(resultSet.getInt("id"));
                 cliente.setNome(resultSet.getString("nome"));
                 cliente.setCpf(resultSet.getString("cpf"));
                 cliente.setLogradouro(resultSet.getString("logradouro"));
@@ -32,9 +32,9 @@ public class ClienteDAO {
                 cliente.setCidade(resultSet.getString("cidade"));
                 cliente.setUf(resultSet.getString("uf"));
 
-
-                cliente.setContasPoupanca(getContasPoupancaByClienteId(id, connection));
-                cliente.setCartoesDeCredito(getCartoesCreditoByClienteId(id, connection));
+//
+//                cliente.setContasPoupanca(getContasPoupancaByClienteId(id, connection));
+//                cliente.setCartoesDeCredito(getCartoesCreditoByClienteId(id, connection));
             }
         } catch (SQLException e) {
             e.printStackTrace();

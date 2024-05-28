@@ -17,6 +17,7 @@ public class MenuServicoController implements Initializable {
     public Button bilhete_botao;
     public Button telefone_botao;
     public Button boleto_botao;
+    public Button historico_servico;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -26,6 +27,9 @@ public class MenuServicoController implements Initializable {
     }
     private void addListeners(){
         boleto_botao.setOnAction(event -> Model.getInstance().getViewFactory().atualizarOpcao("Boleto"));
+        historico_servico.setOnAction(event -> Model.getInstance().getViewFactory().atualizarOpcao("Historico"));
+
+
     }
 
 }

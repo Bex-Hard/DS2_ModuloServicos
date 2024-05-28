@@ -22,6 +22,7 @@ public class ViewFactory {
     private AnchorPane cartoesView;
     private AnchorPane pagarBoletoView;
     private AnchorPane confirmarBoletoView;
+    private AnchorPane HistoricoServicoView;
 
 
     public ViewFactory( ) {
@@ -118,6 +119,19 @@ public class ViewFactory {
             }
         }
         return confirmarBoletoView;
+    }
+
+    //Historico Servico
+    public AnchorPane getHistoricoServicoView(){
+        if (emprestimoView == null){
+            try {
+                emprestimoView = new FXMLLoader(getClass().getResource("/Fxml/HistoricoTransacaoServicos/HistoricoServico.fxml")).load();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return emprestimoView;
     }
 
 

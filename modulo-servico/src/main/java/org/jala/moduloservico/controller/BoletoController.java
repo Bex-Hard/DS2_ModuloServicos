@@ -5,11 +5,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import org.jala.moduloservico.controller.service.BoletoService;
+import org.jala.moduloservico.controller.service.TransacaoService;
 import org.jala.moduloservico.model.DTO.BoletoDTO;
+import org.jala.moduloservico.model.DTO.TransacaoDTO;
+import org.jala.moduloservico.model.Pagamento.FabricaPagamento;
+import org.jala.moduloservico.model.enums.TipoPagamento;
 
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+
+import static org.jala.moduloservico.model.enums.TipoServicos.BOLETO;
 
 public class BoletoController implements Initializable {
 
@@ -31,6 +37,8 @@ public class BoletoController implements Initializable {
 
     private BoletoService boletoService;
 
+    private TipoPagamento tipoPagamento;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         forma_pagmento.getItems().addAll(metodosPgamento);
@@ -41,19 +49,11 @@ public class BoletoController implements Initializable {
         gerar_boleto.setOnAction(event -> {
             if (validarCamposBoleto()) {
                 erro_campos.setVisible(false);
-                LocalDate dataBoletoLocalDate = tranformaLocalDate(data_boleto);
-                LocalDate dataBoletoVencimentoLocalDate = tranformaLocalDate(data_vencimento_vencimento);
-
-                BoletoDTO boletoDTO = new BoletoDTO(
-                        valor_boleto.getText(),
-                        dataBoletoLocalDate,
-                        dataBoletoVencimentoLocalDate);
 
 
-                boletoService = new BoletoService();
-                boletoService.gerarBoleto(boletoDTO);
-                boletoService.gerarPDFBoleto();
+                realizarTransacao();
 
+                processarBoleto();
                 mostrarBoletoGerado(boletoService);
 
             }
@@ -62,6 +62,28 @@ public class BoletoController implements Initializable {
             }
         });
     }
+
+    private void realizarTransacao() {
+        TransacaoDTO transacaoDTO = infoTransacao();
+        FabricaPagamento fabricaPagamento = new FabricaPagamento();
+        TransacaoService transacaoService = new TransacaoService(fabricaPagamento, fabricaPagamento.getClienteDAO(), transacaoDTO);
+        transacaoService.realizarTransacao();
+    }
+
+    private void processarBoleto() {
+        LocalDate dataBoletoLocalDate = tranformaLocalDate(data_boleto);
+        LocalDate dataBoletoVencimentoLocalDate = tranformaLocalDate(data_vencimento_vencimento);
+
+        BoletoDTO boletoDTO = new BoletoDTO(
+                valor_boleto.getText(),
+                dataBoletoLocalDate,
+                dataBoletoVencimentoLocalDate);
+
+
+        boletoService = new BoletoService();
+        boletoService.gerarBoleto(boletoDTO);
+    }
+
     private boolean validarCamposBoleto(){
         try {
             int valorBoletoInt = Integer.parseInt(valor_boleto.getText());
@@ -78,6 +100,16 @@ public class BoletoController implements Initializable {
 
     private LocalDate tranformaLocalDate(DatePicker escolhaData){
         return escolhaData.getValue();
+    }
+
+    private TransacaoDTO infoTransacao() {
+        TransacaoDTO transacaoDTO = new TransacaoDTO();
+        transacaoDTO.setTipoServicos(BOLETO);
+        transacaoDTO.setTipoPagamento(TipoPagamento.CARTAO_CREDITO);
+        transacaoDTO.setValorTransacao(valor_boleto.getText());
+        transacaoDTO.setDescricao("Pagamento de boleto");
+        return transacaoDTO;
+
     }
 
 }

@@ -1,56 +1,40 @@
 package org.jala.moduloservico.model;
 
-public class CartaoCredito {
-    private String numero;
+public class CartaoCredito extends Cartao {
     private double limite;
     private double saldoUtilizado;
 
-    public CartaoCredito() {
-    }
-
     public CartaoCredito(String numero, double limite) {
-        this.numero = numero;
+
         this.limite = limite;
-        this.saldoUtilizado = 0;
     }
 
-    public void setNumero(String numero) {
-        this.numero = numero;
+    public CartaoCredito( ) {
+
+    }
+
+    public boolean usarCredito(double valor) {
+        if (saldoUtilizado + valor <= limite) {
+            saldoUtilizado += valor;
+            return true;
+        }
+        return false;
+    }
+
+
+    public double getLimite() {
+        return limite;
     }
 
     public void setLimite(double limite) {
         this.limite = limite;
     }
 
-    public void setSaldoUtilizado(double saldoUtilizado) {
-        this.saldoUtilizado = saldoUtilizado;
-    }
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public double getLimite() {
-        return limite;
-    }
-
     public double getSaldoUtilizado() {
         return saldoUtilizado;
     }
 
-    public void fazerCompra(double valor) {
-        if (valor + saldoUtilizado <= limite) {
-            saldoUtilizado += valor;
-        } else {
-            System.out.println("Limite insuficiente.");
-        }
-    }
-
-    public void pagarFatura(double valor) {
-        if (valor <= saldoUtilizado) {
-            saldoUtilizado -= valor;
-        } else {
-            System.out.println("Valor maior que o saldo utilizado.");
-        }
+    public void setSaldoUtilizado(double saldoUtilizado) {
+        this.saldoUtilizado = saldoUtilizado;
     }
 }

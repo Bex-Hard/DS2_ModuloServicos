@@ -1,16 +1,24 @@
 package org.jala.moduloservico.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Cliente {
-    private int id;
+
+    private Long id;
     private String nome;
     private String cpf;
-    private List<ContaCorrente> contasCorrentes;
-    private List<ContaPoupanca> contasPoupanca;
-    private List<CartaoCredito> cartoesDeCredito;
+    private ContaCorrente contaCorrente;
     private String cep;
+    private String email;
+    private String logradouro;
+    private String bairro;
+    private String cidade;
+    private String uf;
+
 
     public String getCep() {
         return cep;
@@ -20,20 +28,13 @@ public class Cliente {
         this.cep = cep;
     }
 
-    private String logradouro;
-    private String bairro;
-    private String cidade;
-    private String uf;
-
     public Cliente() {
     }
 
     public Cliente(String nome, String cpf) {
         this.nome = nome;
         this.cpf = cpf;
-        this.contasCorrentes = new ArrayList<>();
-        this.contasPoupanca = new ArrayList<>();
-        this.cartoesDeCredito = new ArrayList<>();
+
     }
 
     public String getLogradouro() {
@@ -76,17 +77,6 @@ public class Cliente {
         this.cpf = cpf;
     }
 
-    public void setContasCorrentes(List<ContaCorrente> contasCorrentes) {
-        this.contasCorrentes = contasCorrentes;
-    }
-
-    public void setContasPoupanca(List<ContaPoupanca> contasPoupanca) {
-        this.contasPoupanca = contasPoupanca;
-    }
-
-    public void setCartoesDeCredito(List<CartaoCredito> cartoesDeCredito) {
-        this.cartoesDeCredito = cartoesDeCredito;
-    }
 
     public String getNome() {
         return nome;
@@ -96,35 +86,29 @@ public class Cliente {
         return cpf;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public void adicionarContaCorrente(ContaCorrente conta) {
-        contasCorrentes.add(conta);
+    public ContaCorrente getContaCorrente() {
+        return contaCorrente;
     }
 
-    public void adicionarContaPoupanca(ContaPoupanca conta) {
-        contasPoupanca.add(conta);
+    public void setContaCorrente(ContaCorrente contaCorrente) {
+        this.contaCorrente = contaCorrente;
     }
 
-    public void adicionarCartaoDeCredito(CartaoCredito cartao) {
-        cartoesDeCredito.add(cartao);
+    public String getEmail() {
+        return email;
     }
 
-    public List<ContaCorrente> getContasCorrentes() {
-        return contasCorrentes;
-    }
-
-    public List<ContaPoupanca> getContasPoupanca() {
-        return contasPoupanca;
-    }
-
-    public List<CartaoCredito> getCartoesDeCredito() {
-        return cartoesDeCredito;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
+
+

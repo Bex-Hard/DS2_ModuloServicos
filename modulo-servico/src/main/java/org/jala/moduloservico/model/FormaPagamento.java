@@ -1,13 +1,8 @@
 package org.jala.moduloservico.model;
 
 public class FormaPagamento {
-    // Tipos de Pagamento
-    public enum TipoPagamento {
-        CARTAO, PIX, BOLETO, SALDO_CONTA
-    }
 
     // Atributos comuns
-    private TipoPagamento tipo;
     private double valor;
 
     // Atributos específicos para cada tipo de pagamento
@@ -23,19 +18,12 @@ public class FormaPagamento {
     private String numeroConta;   // Para pagamentos com saldo em conta
 
     // Construtor
-    public FormaPagamento(TipoPagamento tipo, double valor) {
-        this.tipo = tipo;
+    public FormaPagamento(double valor) {
+
         this.valor = valor;
     }
 
     // Getters e Setters
-    public TipoPagamento getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(TipoPagamento tipo) {
-        this.tipo = tipo;
-    }
 
     public double getValor() {
         return valor;
@@ -103,16 +91,15 @@ public class FormaPagamento {
 
     @Override
     public String toString() {
-        return "FormaDePagamento{" +
-                "tipo=" + tipo +
-                ", valor=" + valor +
-                (tipo == TipoPagamento.CARTAO ? ", numeroCartao='" + numeroCartao + '\'' +
-                        ", nomeTitular='" + nomeTitular + '\'' +
-                        ", validade='" + validade + '\'' +
-                        ", cvv='" + cvv + '\'' : "") +
-                (tipo == TipoPagamento.PIX ? ", chavePix='" + chavePix + '\'' : "") +
-                (tipo == TipoPagamento.BOLETO ? ", codigoBoleto='" + codigoBoleto + '\'' : "") +
-                (tipo == TipoPagamento.SALDO_CONTA ? ", numeroConta='" + numeroConta + '\'' : "") +
+        return "FormaPagamento{" +
+                "valor=" + valor +
+                ", numeroCartao='" + numeroCartao + '\'' +
+                ", nomeTitular='" + nomeTitular + '\'' +
+                ", validade='" + validade + '\'' +
+                ", cvv='" + cvv + '\'' +
+                ", chavePix='" + chavePix + '\'' +
+                ", codigoBoleto='" + codigoBoleto + '\'' +
+                ", numeroConta='" + numeroConta + '\'' +
                 '}';
     }
 }

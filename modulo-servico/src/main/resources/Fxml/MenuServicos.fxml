@@ -9,8 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="795.0" styleClass="menu" stylesheets="@../Styles/menu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="org.jala.moduloservico.controller.MenuServicoController">
+<AnchorPane prefHeight="500.0" prefWidth="795.0" styleClass="menu" stylesheets="@../Styles/menu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jala.moduloservico.controller.MenuServicoController">
     <Line endX="662.0" layoutX="117.0" layoutY="130.0" startX="-100.0" />
     <VBox layoutX="21.0" layoutY="25.0" prefHeight="85.0" prefWidth="767.0" styleClass="menu_container" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0">
         <Text fx:id="nome_cliente" strokeType="OUTSIDE" strokeWidth="0.0" text="Ola, Dono" />
@@ -51,4 +50,7 @@
             <Font size="18.0" />
         </font>
     </Text>
+    <VBox layoutX="667.0" layoutY="453.0" prefHeight="35.0" prefWidth="114.0">
+        <Button fx:id="historico_servico" mnemonicParsing="false" text="Ver Historico" />
+    </VBox>
 </AnchorPane>

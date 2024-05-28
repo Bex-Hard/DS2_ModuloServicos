@@ -1,61 +1,59 @@
     package org.jala.moduloservico.model;
+    import org.jala.moduloservico.model.enums.TipoServicos;
+    import org.jala.moduloservico.model.enums.TipoPagamento;
+
     import java.time.LocalDateTime;
 
     public class Transacao {
+        private String idTransacao;
         // Dados do Cliente
         private String nomeCliente;
         private String numeroConta;
         private String cpfCnpj;
-        private String dadosContato;
+        private String emailCliente;
 
         // Dados da Transação
-        private String idTransacao;
-        private String tipoTransacao;
+        private TipoPagamento tipoPagamento;
         private double valor;
         private LocalDateTime dataHoraTransacao;
-        private String moeda;
+        private String moeda = "R$";
 
         // Dados das Contas Envolvidas
         private String contaOrigem;
         private String contaDestino;
-        private String bancoOrigem;
-        private String bancoDestino;
 
         // Método de Transação
-        private String instrumentoPagamento;
+        private TipoServicos tipoServico;
         private String numeroCartao;
 
         // Descrição e Finalidade
         private String descricao;
-        private String categoria;
 
         // Confirmações e Comprovantes
-        private String confirmacao;
+        private Boolean confirmacao = false;
 
         // Construtor
-        public Transacao(String nomeCliente, String numeroConta, String cpfCnpj, String dadosContato,
-                         String idTransacao, String tipoTransacao, double valor, LocalDateTime dataHoraTransacao,
+        public Transacao(String nomeCliente, String numeroConta, String cpfCnpj, String emailCliente,
+                         String idTransacao, TipoPagamento tipoPagamento, double valor, LocalDateTime dataHoraTransacao,
                          String moeda, String contaOrigem, String contaDestino,
-                         String bancoOrigem, String bancoDestino, String instrumentoPagamento, String numeroCartao, String descricao, String categoria,
-                         String confirmacao) {
+                         TipoServicos tipoServico, String numeroCartao, String descricao,
+                         Boolean confirmacao) {
             this.nomeCliente = nomeCliente;
             this.numeroConta = numeroConta;
             this.cpfCnpj = cpfCnpj;
-            this.dadosContato = dadosContato;
+            this.emailCliente = emailCliente;
             this.idTransacao = idTransacao;
-            this.tipoTransacao = tipoTransacao;
             this.valor = valor;
             this.dataHoraTransacao = dataHoraTransacao;
             this.moeda = moeda;
             this.contaOrigem = contaOrigem;
             this.contaDestino = contaDestino;
-            this.bancoOrigem = bancoOrigem;
-            this.bancoDestino = bancoDestino;
-            this.instrumentoPagamento = instrumentoPagamento;
+            this.tipoServico = tipoServico;
             this.numeroCartao = numeroCartao;
             this.descricao = descricao;
-            this.categoria = categoria;
+
             this.confirmacao = confirmacao;
+            this.tipoPagamento = tipoPagamento;
         }
 
         // Getters e Setters
@@ -83,12 +81,12 @@
             this.cpfCnpj = cpfCnpj;
         }
 
-        public String getDadosContato() {
-            return dadosContato;
+        public String getEmailCliente() {
+            return emailCliente;
         }
 
-        public void setDadosContato(String dadosContato) {
-            this.dadosContato = dadosContato;
+        public void setEmailCliente(String emailCliente) {
+            this.emailCliente = emailCliente;
         }
 
         public String getIdTransacao() {
@@ -99,13 +97,7 @@
             this.idTransacao = idTransacao;
         }
 
-        public String getTipoTransacao() {
-            return tipoTransacao;
-        }
 
-        public void setTipoTransacao(String tipoTransacao) {
-            this.tipoTransacao = tipoTransacao;
-        }
 
         public double getValor() {
             return valor;
@@ -147,28 +139,29 @@
             this.contaDestino = contaDestino;
         }
 
-        public String getBancoOrigem() {
-            return bancoOrigem;
+
+        public TipoPagamento getTipoPagamento() {
+            return tipoPagamento;
         }
 
-        public void setBancoOrigem(String bancoOrigem) {
-            this.bancoOrigem = bancoOrigem;
+        public void setTipoPagamento(TipoPagamento tipoPagamento) {
+            this.tipoPagamento = tipoPagamento;
         }
 
-        public String getBancoDestino() {
-            return bancoDestino;
+        public TipoServicos getTipoServico() {
+            return tipoServico;
         }
 
-        public void setBancoDestino(String bancoDestino) {
-            this.bancoDestino = bancoDestino;
+        public void setTipoServico(TipoServicos tipoServico) {
+            this.tipoServico = tipoServico;
         }
 
-        public String getInstrumentoPagamento() {
-            return instrumentoPagamento;
+        public Boolean getConfirmacao() {
+            return confirmacao;
         }
 
-        public void setInstrumentoPagamento(String instrumentoPagamento) {
-            this.instrumentoPagamento = instrumentoPagamento;
+        public void setConfirmacao(Boolean confirmacao) {
+            this.confirmacao = confirmacao;
         }
 
         public String getDescricao() {
@@ -179,21 +172,7 @@
             this.descricao = descricao;
         }
 
-        public String getCategoria() {
-            return categoria;
-        }
 
-        public void setCategoria(String categoria) {
-            this.categoria = categoria;
-        }
-
-        public String getConfirmacao() {
-            return confirmacao;
-        }
-
-        public void setConfirmacao(String confirmacao) {
-            this.confirmacao = confirmacao;
-        }
 
         public String getNumeroCartao() {
             return numeroCartao;
@@ -203,27 +182,5 @@
             this.numeroCartao = numeroCartao;
         }
 
-        @Override
-        public String toString() {
-            return "Transacao{" +
-                    "nomeCliente='" + nomeCliente + '\'' +
-                    ", numeroConta='" + numeroConta + '\'' +
-                    ", cpfCnpj='" + cpfCnpj + '\'' +
-                    ", dadosContato='" + dadosContato + '\'' +
-                    ", idTransacao='" + idTransacao + '\'' +
-                    ", tipoTransacao='" + tipoTransacao + '\'' +
-                    ", valor=" + valor +
-                    ", dataHoraTransacao=" + dataHoraTransacao +
-                    ", moeda='" + moeda + '\'' +
-                    ", contaOrigem='" + contaOrigem + '\'' +
-                    ", contaDestino='" + contaDestino + '\'' +
-                    ", bancoOrigem='" + bancoOrigem + '\'' +
-                    ", bancoDestino='" + bancoDestino + '\'' +
-                    ", instrumentoPagamento='" + instrumentoPagamento + '\'' +
-                    ", numeroCartao='" + numeroCartao + '\'' +
-                    ", descricao='" + descricao + '\'' +
-                    ", categoria='" + categoria + '\'' +
-                    ", confirmacao='" + confirmacao + '\'' +
-                    '}';
-        }
+
     }
