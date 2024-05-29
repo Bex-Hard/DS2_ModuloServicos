@@ -15,7 +15,7 @@ public class MenuServicoController implements Initializable {
     public Text nome_cliente;
     public ListView lista_historico;
     public Button bilhete_botao;
-    public Button telefone_botao;
+    public Button celular_botao;
     public Button boleto_botao;
     public Button historico_servico;
 
@@ -28,6 +28,7 @@ public class MenuServicoController implements Initializable {
     private void addListeners(){
         boleto_botao.setOnAction(event -> Model.getInstance().getViewFactory().atualizarOpcao("Boleto"));
         historico_servico.setOnAction(event -> Model.getInstance().getViewFactory().atualizarOpcao("Historico"));
+        celular_botao.setOnAction(event -> Model.getInstance().getViewFactory().atualizarOpcao("Celular"));
 
 
     }

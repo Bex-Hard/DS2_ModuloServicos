@@ -5,6 +5,7 @@ import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import org.jala.moduloservico.controller.MenuClienteController;
@@ -22,8 +23,21 @@ public class ViewFactory {
     private AnchorPane cartoesView;
     private AnchorPane pagarBoletoView;
     private AnchorPane confirmarBoletoView;
-    private AnchorPane HistoricoServicoView;
+    private AnchorPane historicoServicoView;
+    private AnchorPane recargaCelularView;
+    private BorderPane solicitarSenha;
 
+//    public BorderPane getSolicitarSenha() {
+//        if (solicitarSenha == null){
+//            try{
+//                solicitarSenha = new FXMLLoader(getClass().getResource("/Fxml/Popup/SolicitarSenha.fxml")).load();
+//            }
+//            catch (Exception e){
+//                e.printStackTrace();
+//            }
+//        }
+//        return solicitarSenha;
+//    }
 
     public ViewFactory( ) {
         this.selecionarOpcaoCliente = new SimpleStringProperty("");
@@ -134,6 +148,25 @@ public class ViewFactory {
         return emprestimoView;
     }
 
+    //Recarga Celular
+
+
+    public AnchorPane getRecargaCelularView() {
+        if (recargaCelularView == null){
+            try{
+                recargaCelularView = new FXMLLoader(getClass().getResource("/Fxml/Celular/Recarga.fxml")).load();
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return recargaCelularView;
+    }
+    public void solicitarSenha(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Popup/SolicitarSenha.fxml"));
+//        MenuClienteController menuClienteController = new MenuClienteController();
+//        loader.setController(menuClienteController);
+        criarStage(loader);
+    }
 
 
     public void mostrarClienteMenu(){
@@ -142,6 +175,7 @@ public class ViewFactory {
         loader.setController(menuClienteController);
         criarStage(loader);
     }
+
 
     private static void criarStage(FXMLLoader loader) {
         Scene scene = null;

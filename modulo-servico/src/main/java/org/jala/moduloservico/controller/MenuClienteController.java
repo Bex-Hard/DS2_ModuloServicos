@@ -24,13 +24,12 @@ public class MenuClienteController implements Initializable {
                         case "Boleto" -> menu_principal.setCenter(Model.getInstance().getViewFactory().getPagarBoletoView());
                         case "Historico" -> menu_principal.setCenter(Model.getInstance().getViewFactory().getHistoricoServicoView());
                         case "ConfirmaBoleto" -> menu_principal.setCenter(Model.getInstance().getViewFactory().getConfirmaPagarBoletoView());
-
-
+                        case "Celular" -> menu_principal.setCenter((Model.getInstance().getViewFactory().getRecargaCelularView()));
+                        case "Senha" -> Model.getInstance().getViewFactory().solicitarSenha();
 
                         default -> menu_principal.setCenter(Model.getInstance().getViewFactory().getMenuServicosView());
                     }
-                        }
-                        );
+                });
 
     }
 }

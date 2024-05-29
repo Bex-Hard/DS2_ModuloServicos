@@ -34,7 +34,7 @@
                 <Font size="18.0" />
             </font>
         </Text>
-        <Button fx:id="telefone_botao" mnemonicParsing="false" styleClass="botao_boleto" text="Recarregar" />
+        <Button fx:id="celular_botao" mnemonicParsing="false" styleClass="botao_boleto" text="Recarregar" />
     </VBox>
     <VBox layoutX="250.0" layoutY="150.0" prefHeight="107.0" prefWidth="132.0" styleClass="menu_container_boleto">
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vem ">

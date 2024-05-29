@@ -4,8 +4,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="500.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Text layoutX="384.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Emprestimos" />
-   </children>
+<AnchorPane prefHeight="500.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1">
+   <Text layoutX="384.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Emprestimos"/>
 </AnchorPane>

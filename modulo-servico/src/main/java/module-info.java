@@ -14,6 +14,7 @@ module org.jala.moduloservico {
     requires eu.hansolo.tilesfx;
     requires caelum.stella.boleto;
     requires java.persistence;
+    requires jcommander;
 
     opens org.jala.moduloservico to javafx.fxml;
     exports org.jala.moduloservico;

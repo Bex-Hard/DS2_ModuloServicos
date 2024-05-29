@@ -32,7 +32,7 @@ public class BoletoController implements Initializable {
     @FXML
     public Text erro_campos;
 
-    private final String[] metodosPgamento = {"Conta Corrente","Conta Poupança","Cartão de Crédito"};
+    private final String[] metodosPgamento = {"Cartão de Débito","Cartão de Crédito","PIX"};
 
 
     private BoletoService boletoService;
