@@ -25,6 +25,7 @@ module org.jala.moduloservico {
     opens org.jala.moduloservico.controller.service to javafx.fxml;
     exports org.jala.moduloservico.model.DTO;
     opens org.jala.moduloservico.model.DTO to javafx.fxml;
+    opens org.jala.moduloservico.controller to javafx.fxml;
 
 
 }

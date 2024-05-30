@@ -26,6 +26,7 @@ public class ViewFactory {
     private AnchorPane historicoServicoView;
     private AnchorPane recargaCelularView;
     private BorderPane solicitarSenha;
+    private AnchorPane viewHistoricoServico;
 
 //    public BorderPane getSolicitarSenha() {
 //        if (solicitarSenha == null){
@@ -49,6 +50,17 @@ public class ViewFactory {
 
     //Menu Esquerdo de Opções do Cliente
 
+    public AnchorPane getViewHistoricoServico(){
+        if (viewHistoricoServico == null){
+            try {
+                viewHistoricoServico = new FXMLLoader(getClass().getResource("/Fxml/HistoricoTransacaoServicos/ViewHistoricoServico.fxml")).load();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return viewHistoricoServico;
+    }
     public AnchorPane getContaView(){
         if (emprestimoView == null){
             try {

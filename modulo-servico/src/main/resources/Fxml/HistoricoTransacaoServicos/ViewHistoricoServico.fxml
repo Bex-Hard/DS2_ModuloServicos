@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="menu" stylesheets="@../Styles/menuHistoricoServico.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jala.moduloservico.controller.ViewHistoricoServicoController">
+   <children>
+      <Label layoutX="301.0" layoutY="42.0" text="Transacoes">
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="EXCHANGE" />
+         </graphic>
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <VBox layoutX="169.0" layoutY="94.0" prefHeight="336.0" prefWidth="483.0" styleClass="menu_container_boleto">
+         <children>
+            <Label text="transaçao 1" />
+            <Label layoutX="204.0" layoutY="168.0" text="transaçao 2" />
+            <Label text="transaçao 3" />
+            <Label layoutX="204.0" layoutY="188.0" text="transaçao 4" />
+         </children></VBox>
+       <FontAwesomeIconView fill="WHITE" glyphName="BANK" layoutX="659.0" layoutY="466.0" size="100" wrappingWidth="119.9166259765625" />
+   </children>
+</AnchorPane>

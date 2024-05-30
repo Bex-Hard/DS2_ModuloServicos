@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.menu {
+    -fx-background-color: #0A0F24; /* Azul Marinho */
+    -fx-text-fill: #FFFFFF; /* Branco para texto */
+    -fx-alignment: center; /* Centraliza o texto */
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-size: 16px;
+}
+.label{
+    -fx-text-fill: #FFFFFF;
+    -fx-padding: 2px;
+}
+.menu_container_boleto {
+    -fx-background-color: #1C2242; /* Azul Marinho */
+    -fx-text-fill: #0A0F24; /* Branco para texto */
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-size: 16px;
+    -fx-border-radius: 20px; /* Adiciona bordas arredondadas */
+    -fx-background-radius: 20px; /* Adiciona bordas arredondadas */
+    -fx-alignment: center;
+}
+.date-picker {
+    -fx-background-color: #FFFFFF; /* Azul Marinho */
+    -fx-text-fill: #1C2242; /* Texto branco */
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-size: 16px;
+    -fx-padding: 1px; /* Padding para espaço interno */
+    -fx-background-radius: 20px; /* Bordas arredondadas */
+    -fx-border-radius: 20px; /* Bordas arredondadas */
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+}
+
+.date-picker .arrow {
+    -fx-background-color: #2e346b; /* Cor da seta */
+}
+
+.date-picker .text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #2e346b; /* Texto branco */
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+}
+
+.date-picker-popup {
+    -fx-background-color: #2e346b; /* Roxo Vibrante */
+    -fx-background-radius: 20px; /* Bordas arredondadas */
+    -fx-border-radius: 20px; /* Bordas arredondadas */
+}
+
+.date-picker-popup .calendar {
+    -fx-background-color: #1C2242; /* Azul Marinho */
+    -fx-background-radius: 20px; /* Bordas arredondadas */
+}
+
+.date-picker-popup .day-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #2e346b; /* Texto branco */
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-size: 16px;
+}
+
+.date-picker-popup .day-cell:hover {
+    -fx-background-color: #FFFFFF; /* Fundo ao passar o mouse */
+}
+
+.date-picker-popup .day-cell:selected {
+    -fx-background-color: #FFFFFF; /* Fundo da data selecionada */
+    -fx-text-fill: #1C2242; /* Texto da data selecionada */
+}
+.botao_boleto {
+    -fx-background-color: #2e346b; /* Roxo Vibrante */
+    -fx-text-fill: #FFFFFF; /* Branco */
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-size: 14px;
+    -fx-padding: 8px 16px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-alignment: center; /* Centraliza o texto */
+}
+.botao_boleto:hover {
+    -fx-background-color: #4A90E2; /* Azul Claro ao passar o mouse */
+}
+
+.botao_boleto:pressed {
+    -fx-background-color: #16cbb9; /* Cinza Claro ao pressionar */
+    -fx-text-fill:#1C2242;
+}
