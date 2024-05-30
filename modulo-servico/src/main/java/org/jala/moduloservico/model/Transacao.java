@@ -5,8 +5,10 @@
     import java.time.LocalDateTime;
 
     public class Transacao {
+
         private long idUser;
         private String idTransacao;
+
         // Dados do Cliente
         private String nomeCliente;
         private String numeroConta;
