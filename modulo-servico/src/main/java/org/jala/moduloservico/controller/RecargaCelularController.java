@@ -17,12 +17,17 @@ public class RecargaCelularController implements Initializable {
     public ChoiceBox valor_recarga;
     public ChoiceBox forma_pagamento;
     public Button confirmar_pagamento;
+    private final String [] metodosPgamento = {"Cartão de Débito","Cartão de Crédito","PIX"};
+    private final String [] operadoras = {"Tim", "Claro", "Vivo","Oi"};
+    private final String [] valores = {"5","10","15","20","50"};
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         confirmar_pagamento.setOnAction(event -> Model.getInstance().getViewFactory().atualizarOpcao("Senha"));
-
-
+        forma_pagamento.getItems().addAll(metodosPgamento);
+        operadoras_list.getItems().addAll(operadoras);
+        valor_recarga.getItems().addAll(valores);
 
     }
 }
