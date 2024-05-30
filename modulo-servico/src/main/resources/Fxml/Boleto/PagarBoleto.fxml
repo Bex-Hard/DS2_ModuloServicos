@@ -14,12 +14,15 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="500.0" prefWidth="795.0" styleClass="menu" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jala.moduloservico.controller.BoletoController">
-   <Label layoutX="445.0" layoutY="39.0" text="Boleto" textAlignment="CENTER">
+   <Label layoutX="427.0" layoutY="33.0" text="Boleto" textAlignment="CENTER">
       <font>
          <Font size="29.0" />
       </font>
+      <graphic>
+         <FontAwesomeIconView fill="WHITE" glyphName="MONEY" size="30" />
+      </graphic>
    </Label>
-   <VBox layoutX="20.0" layoutY="98.0" prefHeight="320.0" prefWidth="186.0" styleClass="menu_container">
+   <VBox layoutX="14.0" layoutY="75.0" prefHeight="369.0" prefWidth="186.0" styleClass="menu_container">
       <Label text="Data do Boleto" />
       <DatePicker fx:id="data_boleto" prefHeight="34.0" prefWidth="160.0" styleClass="date-picker" />
       <Label text="Data de Vencimento" />
@@ -42,7 +45,6 @@
    </VBox>
    <Separator layoutX="213.0" layoutY="33.0" opacity="0.12" orientation="VERTICAL" prefHeight="453.0" prefWidth="0.0" />
    <FontAwesomeIconView fill="WHITE" glyphName="BANK" layoutX="659.0" layoutY="466.0" size="100" />
-   <FontAwesomeIconView fill="WHITE" glyphName="MONEY" layoutX="372.0" layoutY="74.0" size="30" />
    <Button fx:id="pagar_boleto" layoutX="366.0" layoutY="416.0" mnemonicParsing="false" styleClass="botao_boleto" text="Pagar" />
    <Button fx:id="baixar_pdf" layoutX="498.0" layoutY="416.0" mnemonicParsing="false" styleClass="botao_boleto" text="Baixar PDF" />
    <stylesheets>
