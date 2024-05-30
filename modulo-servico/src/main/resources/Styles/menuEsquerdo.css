@@ -1,0 +1,34 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.menu {
+    -fx-background-color: #0A0F24; /* Azul Marinho */
+    -fx-text-fill: #FFFFFF; /* Branco para texto */
+    -fx-alignment: center; /* Centraliza o texto */
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-size: 16px;
+}
+.botao_boleto {
+    -fx-background-color: #2e346b; /* Roxo Vibrante */
+    -fx-text-fill: #FFFFFF; /* Branco */
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-size: 10px;
+    -fx-padding: 8px 16px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-alignment: center; /* Centraliza o texto */
+}
+.botao_boleto:hover {
+    -fx-background-color: #4A90E2; /* Azul Claro ao passar o mouse */
+}
+
+.botao_boleto:pressed {
+    -fx-background-color: #CCCCCC; /* Cinza Claro ao pressionar */
+}
+.label{
+    -fx-text-fill: #FFFFFF;
+    -fx-padding: 7px;
+    -fx-alignment: center;
+}

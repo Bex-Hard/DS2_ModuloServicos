@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+.menu{
+    -fx-background-color: #0A0F24;
+    -fx-alignment: center;
+}
+.menu_container_boleto{
+    -fx-background-color: #1C2242; /* Azul Marinho */
+    -fx-text-fill: #0A0F24; /* Branco para texto */
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-size: 16px;
+    -fx-border-radius: 20px; /* Adiciona bordas arredondadas */
+    -fx-background-radius: 20px; /* Adiciona bordas arredondadas */
+    -fx-alignment: center;
+    -fc-padding: 7px;
+}
+.label{
+    -fx-text-fill: #FFFFFF;
+    -fc-padding: 7px;
+    -fx-font-family: 'Roboto', sans-serif;
+}
+.rounded-text-field {
+    -fx-background-color: #FFFFFF; /* Azul Marinho */
+    -fx-text-fill: #1C2242; /* Texto branco */
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-size: 16px;
+    -fx-padding: 7px; /* Padding para espaço interno */
+    -fx-background-radius: 20px; /* Bordas arredondadas */
+    -fx-border-radius: 20px; /* Bordas arredondadas */
+    -fx-border-color: transparent; /* Remover borda padrão */
+}
+.rounded-choice-box {
+    -fx-background-color: #FFFFFF; /* Fundo branco */
+    -fx-text-fill: #1C2242; /* Texto azul marinho */
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-size: 16px;
+    -fx-padding: 1px; /* Padding para espaço interno */
+    -fx-background-radius: 20px; /* Bordas arredondadas */
+    -fx-border-radius: 20px; /* Bordas arredondadas */
+    -fx-border-color: transparent; /* Remover borda padrão */
+}
+
+.rounded-choice-box .choice-box {
+    -fx-background-color: #FFFFFF; /* Fundo branco */
+    -fx-background-radius: 20px; /* Bordas arredondadas */
+    -fx-border-radius: 20px; /* Bordas arredondadas */
+    -fx-border-color: transparent; /* Remover borda padrão */
+}
+
+.rounded-choice-box .list-cell {
+    -fx-background-color: #E0E0E0; /* Fundo branco */
+    -fx-text-fill: #1C2242; /* Texto azul marinho */
+}
+
+.rounded-choice-box .list-cell:hover {
+    -fx-background-color: #E0E0E0; /* Fundo cinza claro ao passar o mouse */
+}
+
+.rounded-choice-box .list-cell:selected {
+    -fx-background-color: #1C2242; /* Fundo azul marinho ao selecionar */
+    -fx-text-fill: #1C2242; /* Texto branco ao selecionar */
+}
+.rounded-choice-box .label{
+    -fx-text-fill:#1C2242;
+}
+.botao_boleto {
+    -fx-background-color: #2e346b; /* Roxo Vibrante */
+    -fx-text-fill: #FFFFFF; /* Branco */
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-size: 14px;
+    -fx-padding: 12px 16px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-alignment: center; /* Centraliza o texto */
+}
+.botao_boleto:hover {
+    -fx-background-color: #4A90E2; /* Azul Claro ao passar o mouse */
+}
+
+.botao_boleto:pressed {
+    -fx-background-color: #CCCCCC; /* Cinza Claro ao pressionar */
+}
