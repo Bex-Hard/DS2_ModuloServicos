@@ -12,7 +12,7 @@
     -fx-background-color: #2e346b; /* Roxo Vibrante */
     -fx-text-fill: #FFFFFF; /* Branco */
     -fx-font-family: 'Roboto', sans-serif;
-    -fx-font-size: 10px;
+    -fx-font-size: 14px;
     -fx-padding: 8px 16px;
     -fx-border-radius: 20px;
     -fx-background-radius: 20px;
@@ -25,7 +25,8 @@
 }
 
 .botao_boleto:pressed {
-    -fx-background-color: #CCCCCC; /* Cinza Claro ao pressionar */
+    -fx-background-color: #16cbb9; /* Cinza Claro ao pressionar */
+    -fx-text-fill:#1C2242;
 }
 .label{
     -fx-text-fill: #FFFFFF;

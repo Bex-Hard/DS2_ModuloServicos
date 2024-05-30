@@ -147,5 +147,6 @@
 }
 
 .botao_boleto:pressed {
-    -fx-background-color: #CCCCCC; /* Cinza Claro ao pressionar */
+    -fx-background-color: #16cbb9; /* Cinza Claro ao pressionar */
+    -fx-text-fill:#1C2242;
 }

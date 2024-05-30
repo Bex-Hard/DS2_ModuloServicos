@@ -12,15 +12,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="120.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jala.moduloservico.controller.MenuEsquerdoController">
-   <AnchorPane prefHeight="540.0" prefWidth="154.0" styleClass="menu" stylesheets="@../Styles/menuEsquerdo.css">
-      <VBox alignment="CENTER" layoutX="-10.0" layoutY="138.0" prefHeight="335.0" prefWidth="143.0">
-         <Button fx:id="cartoes_botao" mnemonicParsing="false" styleClass="botao_boleto" text="Cartoes">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="175.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jala.moduloservico.controller.MenuEsquerdoController">
+   <AnchorPane prefHeight="537.0" prefWidth="213.0" styleClass="menu" stylesheets="@../Styles/menuEsquerdo.css">
+      <VBox alignment="CENTER" layoutY="138.0" prefHeight="335.0" prefWidth="176.0">
+         <Button fx:id="cartoes_botao" mnemonicParsing="false" styleClass="botao_boleto" text="Cartões">
             <graphic>
                <FontAwesomeIconView fill="WHITE" glyphName="CC" />
             </graphic></Button>
          <Text strokeType="OUTSIDE" strokeWidth="0.0" />
-         <Button fx:id="tranferencias_botao" mnemonicParsing="false" prefHeight="36.0" prefWidth="118.0" styleClass="botao_boleto" text="Transferencias">
+         <Button fx:id="tranferencias_botao" mnemonicParsing="false" prefHeight="36.0" prefWidth="145.0" styleClass="botao_boleto" text="Transferencias">
             <graphic>
                <FontAwesomeIconView fill="WHITE" glyphName="DOLLAR" />
             </graphic>
@@ -33,7 +33,7 @@
                <FontAwesomeIconView fill="WHITE" glyphName="ADDRESS_BOOK_ALT" />
             </graphic></Button>
          <Text strokeType="OUTSIDE" strokeWidth="0.0" />
-         <Button fx:id="emprestimos_botao" mnemonicParsing="false" prefHeight="32.0" prefWidth="118.0" styleClass="botao_boleto" text="Emprestimos">
+         <Button fx:id="emprestimos_botao" mnemonicParsing="false" prefHeight="32.0" prefWidth="149.0" styleClass="botao_boleto" text="Emprestimos">
             <graphic>
                <FontAwesomeIconView fill="WHITE" glyphName="HANDSHAKE_ALT" />
             </graphic></Button>
@@ -50,17 +50,16 @@
                <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" />
             </graphic></Button>
       </VBox>
-      <VBox prefHeight="123.0" prefWidth="133.0" styleClass="menu" AnchorPane.bottomAnchor="412.0">
+      <VBox layoutX="18.0" layoutY="2.0" prefHeight="123.0" prefWidth="133.0" styleClass="menu" AnchorPane.bottomAnchor="412.0">
          <ImageView fitHeight="79.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@../Images/Jala%20Logo.png" />
+               <Image url="@../Images/Jala_Logo.png" />
             </image>
          </ImageView>
          <Label text="Bem-Vindo!" />
       </VBox>
    </AnchorPane>
    <stylesheets>
-      <URL value="@Styles/menuEsquerdo.css" />
       <URL value="@../Styles/menuEsquerdo.css" />
    </stylesheets>
 </VBox>
