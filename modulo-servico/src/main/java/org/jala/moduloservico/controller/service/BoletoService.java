@@ -7,6 +7,7 @@ import org.jala.moduloservico.model.Cliente;
 import org.jala.moduloservico.model.DAO.ClienteDAO;
 import org.jala.moduloservico.model.DTO.BoletoDTO;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Calendar;
 
@@ -28,11 +29,11 @@ public class BoletoService {
     }
 
 
-    public BoletoService() {
+    public BoletoService() throws SQLException {
 
         this.banco = new BancoDoBrasil();
         this.clienteDAO = new ClienteDAO();
-        this.cliente = clienteDAO.getClienteById(1);
+        this.cliente = clienteDAO.buscarClientePorId(1L);
     }
 
     public Boleto gerarBoleto(BoletoDTO boletoDTO){
@@ -75,7 +76,7 @@ public class BoletoService {
                 .comPagador(pagador)
                 .comValorBoleto(boletoDTO.getValorBoleto())
                 .comNumeroDoDocumento("1234")
-                .comInstrucoes("Pagamento via App JalaBanl")
+                .comInstrucoes("Pagamento via App JalaBank")
                 .comLocaisDePagamento("local 1", "local 2");
         return boleto;
     }

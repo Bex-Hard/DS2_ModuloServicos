@@ -5,7 +5,7 @@ import org.jala.moduloservico.model.DAO.ClienteDAO;
 public class PagamentoCartaoCredito implements PagamentoStrategy {
     ClienteDAO clienteDAO;
 
-    public PagamentoCartaoCredito(ClienteDAO clienteDAO) {
+    public PagamentoCartaoCredito(ClienteDAO clienteDAO, Long clienteID) {
         this.clienteDAO = clienteDAO;
     }
 

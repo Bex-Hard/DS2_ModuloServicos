@@ -1,5 +1,7 @@
 package org.jala.moduloservico.controller;
 
+import br.com.caelum.stella.boleto.Boleto;
+import br.com.caelum.stella.boleto.Endereco;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -13,8 +15,13 @@ import org.jala.moduloservico.model.DTO.TransacaoDTO;
 import org.jala.moduloservico.model.Pagamento.FabricaPagamento;
 import org.jala.moduloservico.model.enums.TipoPagamento;
 
+import java.math.BigDecimal;
 import java.net.URL;
+import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 import static org.jala.moduloservico.model.enums.TipoServicos.BOLETO;
@@ -24,8 +31,6 @@ public class BoletoController implements Initializable {
     @FXML
     public Button gerar_boleto;
     @FXML
-    public ChoiceBox<String> forma_pagmento;
-    @FXML
     public TextField valor_boleto;
     @FXML
     public DatePicker data_boleto;
@@ -33,9 +38,18 @@ public class BoletoController implements Initializable {
     public DatePicker data_vencimento_vencimento;
     @FXML
     public Text erro_campos;
-    private final String[] metodosPgamento = {"Cartão de Débito","Cartão de Crédito","PIX"};
+
     public Button pagar_boleto;
     public Button baixar_pdf;
+
+    public Label nome_pagador;
+    public Label cpf_pagador;
+    public Label endereco_pagador;
+    public Label codigo_boleto;
+    public Label data_vencimento;
+    public Label data_processamento;
+    public Label texto_codigo_boleto;
+    public Label boleto_cliente;
 
 
     private BoletoService boletoService;
@@ -44,22 +58,35 @@ public class BoletoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        forma_pagmento.getItems().addAll(metodosPgamento);
+
         addListeners();
-        addNumericValidation(valor_boleto);
+        addMonetaryValidation(valor_boleto);
 
 
     }
     private void addListeners(){
         gerar_boleto.setOnAction(event -> {
             if (validarCamposBoleto()) {
+                pagar_boleto.setVisible(true);
+                baixar_pdf.setVisible(true);
+
                 erro_campos.setVisible(false);
 
+                try {
+                    Boleto boleto = processarBoleto();
+                    mostrarBoletoGerado(boleto);
+                    boletoService.gerarPDFBoleto();
 
-                realizarTransacao();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
 
-                processarBoleto();
-                mostrarBoletoGerado(boletoService);
+
+//                try {
+//                    realizarTransacao();
+//                } catch (SQLException e) {
+//                    throw new RuntimeException(e);
+//                }
 
             }
             else {
@@ -67,25 +94,25 @@ public class BoletoController implements Initializable {
             }
         });
     }
-    private void addNumericValidation(TextField textField) {
+    private void addMonetaryValidation(TextField textField) {
         textField.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!newValue.matches("\\d*(.\\d*)?")) {
+                if (!newValue.matches("\\d+(\\.\\d{0,2})?")) {
                     textField.setText(oldValue);
                 }
             }
         });
     }
 
-    private void realizarTransacao() {
+    private void realizarTransacao() throws SQLException {
         TransacaoDTO transacaoDTO = infoTransacao();
         FabricaPagamento fabricaPagamento = new FabricaPagamento();
         TransacaoService transacaoService = new TransacaoService(fabricaPagamento, fabricaPagamento.getClienteDAO(), transacaoDTO);
         transacaoService.realizarTransacao();
     }
 
-    private void processarBoleto() {
+    private Boleto processarBoleto() throws SQLException {
         LocalDate dataBoletoLocalDate = tranformaLocalDate(data_boleto);
         LocalDate dataBoletoVencimentoLocalDate = tranformaLocalDate(data_vencimento_vencimento);
 
@@ -96,12 +123,12 @@ public class BoletoController implements Initializable {
 
 
         boletoService = new BoletoService();
-        boletoService.gerarBoleto(boletoDTO);
+        return boletoService.gerarBoleto(boletoDTO);
     }
 
     private boolean validarCamposBoleto(){
         try {
-            int valorBoletoInt = Integer.parseInt(valor_boleto.getText());
+            double valorBoletoInt = Double.parseDouble(valor_boleto.getText());
         }
         catch (NumberFormatException e){
             return false;
@@ -110,7 +137,41 @@ public class BoletoController implements Initializable {
 
     }
 
-    private void mostrarBoletoGerado(BoletoService boletoService){
+    private void mostrarBoletoGerado(Boleto boleto){
+        nome_pagador.setText(boleto.getPagador().getNome());
+        cpf_pagador.setText(boleto.getPagador().getDocumento());
+        endereco_pagador.setText(boleto.getPagador().getEndereco().getEnderecoCompleto());
+        boleto_cliente.setText( "R$ " + toString( boleto.getValorBoleto()));
+        codigo_boleto.setText(boleto.getCodigoDeBarras());
+        data_vencimento.setText(formatarData(tranformaLocalDate(data_boleto)));
+        data_processamento.setText(formatarData(tranformaLocalDate(data_vencimento_vencimento)));
+
+        nome_pagador.setVisible(true);
+        cpf_pagador.setVisible(true);
+        endereco_pagador.setVisible(true);
+        boleto_cliente.setVisible(true);
+        codigo_boleto.setVisible(true);
+        data_vencimento.setVisible(true);
+        data_processamento.setVisible(true);
+        texto_codigo_boleto.setVisible(true);
+
+
+
+
+    }
+
+    private String formatarData(LocalDate localDate){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy", new Locale("pt", "BR"));
+        return localDate.format(formatter);
+    }
+    private String toString(BigDecimal bigDecimal) {
+        if (bigDecimal == null) {
+            return "";
+        }
+
+        // Formatação com duas casas decimais
+        DecimalFormat df = new DecimalFormat("#,##0.00");
+        return df.format(bigDecimal);
     }
 
     private LocalDate tranformaLocalDate(DatePicker escolhaData){
@@ -120,11 +181,10 @@ public class BoletoController implements Initializable {
     private TransacaoDTO infoTransacao() {
         TransacaoDTO transacaoDTO = new TransacaoDTO();
         transacaoDTO.setTipoServicos(BOLETO);
-        transacaoDTO.setTipoPagamento(TipoPagamento.CARTAO_CREDITO);
+        transacaoDTO.setTipoPagamento(TipoPagamento.DEBITO_CONTA);
         transacaoDTO.setValorTransacao(valor_boleto.getText());
         transacaoDTO.setDescricao("Pagamento de boleto");
         return transacaoDTO;
-
     }
 
 }

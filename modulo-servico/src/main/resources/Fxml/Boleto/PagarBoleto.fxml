@@ -3,7 +3,6 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -29,24 +28,53 @@
       <DatePicker fx:id="data_vencimento_vencimento" prefHeight="34.0" prefWidth="160.0" styleClass="date-picker" />
       <Label layoutX="10.0" layoutY="60.0" text="Valor do Boleto" />
       <TextField fx:id="valor_boleto" prefHeight="36.0" prefWidth="100.0" promptText="R$" styleClass="rounded-text-field" />
-      <Label layoutX="10.0" layoutY="110.0" text="Forma de Pagamento" />
-      <ChoiceBox fx:id="forma_pagmento" prefWidth="150.0" styleClass="rounded-choice-box" />
       <Text fx:id="erro_campos" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Campos Invalidos" visible="false" />
-      <Button fx:id="gerar_boleto" mnemonicParsing="false" styleClass="botao_boleto" text="Gerar Boleto">
-         <graphic>
-            <FontAwesomeIconView fill="WHITE" glyphName="FILE" />
-         </graphic></Button>
+      <Button fx:id="gerar_boleto" mnemonicParsing="false" styleClass="botao_boleto" text="Gerar Boleto" />
    </VBox>
-   <VBox layoutX="260.0" layoutY="141.0" prefHeight="218.0" prefWidth="476.0" styleClass="menu_container_boleto">
-      <Text fx:id="erro_campos1" strokeType="OUTSIDE" strokeWidth="0.0" text="Campos Invalidos" visible="false" />
-      <Label text="  Pagador/CPF/CNPJ/Endereço:" />
-      <Text fx:id="erro_campos11" strokeType="OUTSIDE" strokeWidth="0.0" text=" " visible="false" />
-      <Label layoutX="10.0" layoutY="10.0" text="  Text" />
+   <VBox layoutX="258.0" layoutY="91.0" prefHeight="218.0" prefWidth="476.0" styleClass="menu_container_boleto">
+      <Label fx:id="nome_pagador" text="nome_pagador" visible="false">
+         <graphic>
+            <Label text="Pagador:" />
+         </graphic>
+      </Label>
+      <Label fx:id="cpf_pagador" text="cpf_pagador" visible="false">
+         <graphic>
+            <Label text="CPF:" />
+         </graphic>
+      </Label>
+      <Label fx:id="endereco_pagador" text="endereço_pagador" visible="false">
+         <graphic>
+            <Label text="Endereço:" />
+         </graphic>
+      </Label>
+      <Label fx:id="boleto_cliente" text="boleto_cliente" visible="false">
+         <graphic>
+            <Label text="Valor Boleto:" />
+         </graphic>
+      </Label>
+      <Label fx:id="texto_codigo_boleto" text="Codigo de Barras:" visible="false" />
+      <Label fx:id="codigo_boleto" text="codigo_boleto" visible="false" />
+      <Label fx:id="data_vencimento" text="data_vencimento" visible="false">
+         <graphic>
+            <Label text="Data vencimento:" />
+         </graphic>
+      </Label>
+      <Label fx:id="data_processamento" text="data_processamento" visible="false">
+         <graphic>
+            <Label text="Data processamento:" />
+         </graphic>
+      </Label>
    </VBox>
    <Separator layoutX="213.0" layoutY="33.0" opacity="0.12" orientation="VERTICAL" prefHeight="453.0" prefWidth="0.0" />
-   <FontAwesomeIconView fill="WHITE" glyphName="BANK" layoutX="659.0" layoutY="466.0" size="100" />
-   <Button fx:id="pagar_boleto" layoutX="366.0" layoutY="416.0" mnemonicParsing="false" styleClass="botao_boleto" text="Pagar" />
-   <Button fx:id="baixar_pdf" layoutX="498.0" layoutY="416.0" mnemonicParsing="false" styleClass="botao_boleto" text="Baixar PDF" />
+   <FontAwesomeIconView fill="WHITE" glyphName="BANK" layoutX="693.0" layoutY="478.0" size="100" wrappingWidth="80.28571319580078" />
+   <Button fx:id="pagar_boleto" layoutX="391.0" layoutY="455.0" mnemonicParsing="false" styleClass="botao_boleto" text="Pagar" visible="false">
+      <graphic>
+         <FontAwesomeIconView fill="WHITE" glyphName="DOLLAR" />
+      </graphic></Button>
+   <Button fx:id="baixar_pdf" layoutX="493.0" layoutY="455.0" mnemonicParsing="false" styleClass="botao_boleto" text="Baixar PDF" visible="false">
+      <graphic>
+         <FontAwesomeIconView fill="WHITE" glyphName="FILE" />
+      </graphic></Button>
    <stylesheets>
       <URL value="@../Styles/menuBoleto.css" />
    </stylesheets>

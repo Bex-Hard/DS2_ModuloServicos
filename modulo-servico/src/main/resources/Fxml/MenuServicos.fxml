@@ -29,15 +29,11 @@
       <Label text="VEM" />
         <Button fx:id="bilhete_botao" mnemonicParsing="false" styleClass="botao_boleto" text="Recarregar" />
     </VBox>
-   <VBox layoutX="525.0" layoutY="307.0" prefHeight="146.0" prefWidth="172.0" styleClass="menu_container_boleto">
-      <children>
-         <Label text="Historico" />
-         <Button fx:id="historico_servico" mnemonicParsing="false" styleClass="botao_boleto" text="Requerer" />
-      </children>
-   </VBox>
-   <VBox layoutX="311.0" layoutY="141.0" prefHeight="313.0" prefWidth="194.0" styleClass="menu_container_boleto">
-      <children>
-         <FontAwesomeIconView fill="WHITE" glyphName="BANK" size="120" textAlignment="CENTER" />
-      </children>
-   </VBox>
+    <VBox layoutX="525.0" layoutY="307.0" prefHeight="146.0" prefWidth="172.0" styleClass="menu_container_boleto">
+        <Label text="Historico"/>
+        <Button fx:id="historico_servico" mnemonicParsing="false" styleClass="botao_boleto" text="Requerer"/>
+    </VBox>
+    <VBox layoutX="311.0" layoutY="141.0" prefHeight="313.0" prefWidth="194.0" styleClass="menu_container_boleto">
+        <FontAwesomeIconView fill="WHITE" glyphName="BANK" size="120" textAlignment="CENTER"/>
+    </VBox>
 </AnchorPane>
