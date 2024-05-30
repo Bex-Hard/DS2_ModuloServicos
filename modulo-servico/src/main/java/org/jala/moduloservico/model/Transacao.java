@@ -5,6 +5,7 @@
     import java.time.LocalDateTime;
 
     public class Transacao {
+        private long idUser;
         private String idTransacao;
         // Dados do Cliente
         private String nomeCliente;
@@ -33,11 +34,13 @@
         private Boolean confirmacao = false;
 
         // Construtor
-        public Transacao(String nomeCliente, String numeroConta, String cpfCnpj, String emailCliente,
+        public Transacao(Long idUser, String nomeCliente, String numeroConta, String cpfCnpj, String emailCliente,
                          String idTransacao, TipoPagamento tipoPagamento, double valor, LocalDateTime dataHoraTransacao,
                          String moeda, String contaOrigem, String contaDestino,
                          TipoServicos tipoServico, String numeroCartao, String descricao,
                          Boolean confirmacao) {
+
+            this.idUser = idUser;
             this.nomeCliente = nomeCliente;
             this.numeroConta = numeroConta;
             this.cpfCnpj = cpfCnpj;
@@ -57,6 +60,15 @@
         }
 
         // Getters e Setters
+
+        public long getIdUser() {
+            return idUser;
+        }
+
+        public void setIdUser(long idUser) {
+            this.idUser = idUser;
+        }
+
         public String getNomeCliente() {
             return nomeCliente;
         }
