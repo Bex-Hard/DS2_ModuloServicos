@@ -1,11 +1,12 @@
 package org.jala.moduloservico.model;
 
-class ContaCorrente {
+public class ContaCorrente {
+    private long id;
     private String numeroAgencia;
     private String digitoAgencia;
     private String numeroConta;
     private double saldo;
-    private Cartao cartao;
+    private CartaoCredito cartao;
 
     public boolean retirarDinheiro(double valor) {
         if (saldo >= valor) {
@@ -13,6 +14,14 @@ class ContaCorrente {
             return true;
         }
         return false;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getNumeroAgencia() {
@@ -47,11 +56,11 @@ class ContaCorrente {
         this.saldo = saldo;
     }
 
-    public Cartao getCartao() {
+    public CartaoCredito getCartao() {
         return cartao;
     }
 
-    public void setCartao(Cartao cartao) {
+    public void setCartao(CartaoCredito cartao) {
         this.cartao = cartao;
     }
 }

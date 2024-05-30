@@ -18,7 +18,15 @@ public class Cliente {
     private String bairro;
     private String cidade;
     private String uf;
+    private String senha;
 
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 
     public String getCep() {
         return cep;
