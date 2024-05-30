@@ -7,20 +7,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="500.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="org.jala.moduloservico.controller.RecargaCelularController">
+<AnchorPane prefHeight="500.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jala.moduloservico.controller.RecargaCelularController">
     <VBox layoutX="184.0" layoutY="104.0" prefHeight="292.0" prefWidth="428.0">
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Celular"/>
-        <TextField fx:id="celular_cliente"/>
-        <Text fx:id="erro_valid_celular" strokeType="OUTSIDE" strokeWidth="0.0" text="Celular invalido"/>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Operadora"/>
-        <ChoiceBox fx:id="operadoras_list" prefWidth="150.0"/>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Valor"/>
-        <ChoiceBox fx:id="valor_recarga" prefWidth="150.0"/>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Forma de pagamento"/>
-        <ChoiceBox fx:id="forma_pagamento" prefWidth="150.0"/>
-        <Button fx:id="confirmar_pagamento" mnemonicParsing="false" text="Confirmar"/>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Celular" />
+        <TextField fx:id="celular_cliente" />
+        <Text fx:id="erro_valid_celular" strokeType="OUTSIDE" strokeWidth="0.0" text="Celular invalido" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Operadora" />
+        <ChoiceBox fx:id="operadoras_list" prefWidth="150.0" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Valor" />
+        <ChoiceBox fx:id="valor_recarga" prefWidth="150.0" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Forma de pagamento" />
+        <ChoiceBox fx:id="forma_pagamento" prefWidth="150.0" />
+        <Button fx:id="confirmar_pagamento" mnemonicParsing="false" text="Confirmar" />
     </VBox>
-    <Text layoutX="385.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recarga Celular"/>
+    <Text layoutX="385.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recarga Celular" />
 </AnchorPane>

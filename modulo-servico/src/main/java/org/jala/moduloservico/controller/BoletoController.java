@@ -1,5 +1,7 @@
 package org.jala.moduloservico.controller;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -45,6 +47,8 @@ public class BoletoController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         forma_pagmento.getItems().addAll(metodosPgamento);
         addListeners();
+        addNumericValidation(valor_boleto);
+
 
     }
     private void addListeners(){
@@ -61,6 +65,16 @@ public class BoletoController implements Initializable {
             }
             else {
                 erro_campos.setVisible(true);
+            }
+        });
+    }
+    private void addNumericValidation(TextField textField) {
+        textField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d*(.\\d*)?")) {
+                    textField.setText(oldValue);
+                }
             }
         });
     }
