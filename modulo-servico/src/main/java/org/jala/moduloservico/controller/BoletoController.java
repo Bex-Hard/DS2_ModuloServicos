@@ -33,6 +33,8 @@ public class BoletoController implements Initializable {
     public Text erro_campos;
 
     private final String[] metodosPgamento = {"Cartão de Débito","Cartão de Crédito","PIX"};
+    public Button pagar_boleto;
+    public Button baixar_pdf;
 
 
     private BoletoService boletoService;

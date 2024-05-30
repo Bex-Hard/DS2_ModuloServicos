@@ -1,56 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="795.0" styleClass="menu" stylesheets="@../Styles/menu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jala.moduloservico.controller.MenuServicoController">
-    <Line endX="662.0" layoutX="117.0" layoutY="130.0" startX="-100.0" />
+<AnchorPane prefHeight="500.0" prefWidth="756.0" styleClass="menu" stylesheets="@../Styles/menu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jala.moduloservico.controller.MenuServicoController">
+    <Line endX="662.0" layoutX="131.0" layoutY="126.0" startX="-100.0" stroke="WHITE" strokeLineCap="ROUND" />
     <VBox layoutX="21.0" layoutY="25.0" prefHeight="85.0" prefWidth="767.0" styleClass="menu_container" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0">
-        <Text fx:id="nome_cliente" strokeType="OUTSIDE" strokeWidth="0.0" text="Ola, Dono" />
-        <Label fx:id="data_login" text="DATA" />
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="JalaBank">
-            <font>
-                <Font size="26.0" />
-            </font>
-        </Text>
+      <Label fx:id="data_login11" layoutX="340.0" layoutY="17.0" text="JalaBank">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
     </VBox>
-    <VBox layoutX="22.0" layoutY="150.0" prefHeight="107.0" prefWidth="132.0" styleClass="menu_container_boleto">
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Boleto">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Text>
+    <VBox layoutX="118.0" layoutY="141.0" prefHeight="146.0" prefWidth="172.0" styleClass="menu_container_boleto">
+      <Label text="Boleto" />
         <Button fx:id="boleto_botao" mnemonicParsing="false" styleClass="botao_boleto" text="Pagar Boleto" />
     </VBox>
-    <VBox layoutX="22.0" layoutY="283.0" prefHeight="107.0" prefWidth="132.0" styleClass="menu_container_boleto">
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Text>
+    <VBox layoutX="118.0" layoutY="307.0" prefHeight="146.0" prefWidth="172.0" styleClass="menu_container_boleto">
+      <Label text="Telefone" />
         <Button fx:id="celular_botao" mnemonicParsing="false" styleClass="botao_boleto" text="Recarregar" />
     </VBox>
-    <VBox layoutX="250.0" layoutY="150.0" prefHeight="107.0" prefWidth="132.0" styleClass="menu_container_boleto">
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vem ">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Text>
+    <VBox layoutX="525.0" layoutY="141.0" prefHeight="146.0" prefWidth="172.0" styleClass="menu_container_boleto">
+      <Label text="VEM" />
         <Button fx:id="bilhete_botao" mnemonicParsing="false" styleClass="botao_boleto" text="Recarregar" />
     </VBox>
-    <ListView fx:id="lista_historico" layoutX="439.0" layoutY="189.0" prefHeight="264.0" prefWidth="296.0" />
-    <Text layoutX="439.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Historico Serviços">
-        <font>
-            <Font size="18.0" />
-        </font>
-    </Text>
-    <VBox layoutX="667.0" layoutY="453.0" prefHeight="35.0" prefWidth="114.0">
-        <Button fx:id="historico_servico" mnemonicParsing="false" text="Ver Historico" />
-    </VBox>
+   <VBox layoutX="525.0" layoutY="307.0" prefHeight="146.0" prefWidth="172.0" styleClass="menu_container_boleto">
+      <children>
+         <Label text="Historico" />
+         <Button fx:id="historico_servico" mnemonicParsing="false" styleClass="botao_boleto" text="Requerer" />
+      </children>
+   </VBox>
+   <VBox layoutX="311.0" layoutY="141.0" prefHeight="313.0" prefWidth="194.0" styleClass="menu_container_boleto">
+      <children>
+         <FontAwesomeIconView fill="WHITE" glyphName="BANK" size="120" textAlignment="CENTER" />
+      </children>
+   </VBox>
 </AnchorPane>
