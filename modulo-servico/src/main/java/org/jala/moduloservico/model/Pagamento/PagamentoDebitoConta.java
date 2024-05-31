@@ -5,11 +5,11 @@ import org.jala.moduloservico.model.DAO.ClienteDAO;
 
 import java.sql.SQLException;
 
-public class PagamentoPix implements PagamentoStrategy{
+public class PagamentoDebitoConta implements PagamentoStrategy{
     ClienteDAO clienteDAO;
     Cliente cliente;
 
-    public PagamentoPix(ClienteDAO clienteDAO, Cliente cliente) {
+    public PagamentoDebitoConta(ClienteDAO clienteDAO, Cliente cliente) throws SQLException {
         this.clienteDAO = clienteDAO;
         this.cliente = cliente;
     }

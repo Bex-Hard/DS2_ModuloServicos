@@ -58,7 +58,6 @@ public class BoletoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         addListeners();
         addMonetaryValidation(valor_boleto);
 
@@ -69,30 +68,35 @@ public class BoletoController implements Initializable {
             if (validarCamposBoleto()) {
                 pagar_boleto.setVisible(true);
                 baixar_pdf.setVisible(true);
-
                 erro_campos.setVisible(false);
 
                 try {
                     Boleto boleto = processarBoleto();
                     mostrarBoletoGerado(boleto);
-                    boletoService.gerarPDFBoleto();
 
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
 
-
-//                try {
-//                    realizarTransacao();
-//                } catch (SQLException e) {
-//                    throw new RuntimeException(e);
-//                }
-
             }
             else {
                 erro_campos.setVisible(true);
             }
+        }
+
+        );
+        baixar_pdf.setOnAction(event -> {
+            boletoService.gerarPDFBoleto();
         });
+        pagar_boleto.setOnAction(event -> {
+                    try {
+                        realizarTransacao();
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                );
+
     }
     private void addMonetaryValidation(TextField textField) {
         textField.textProperty().addListener(new ChangeListener<String>() {

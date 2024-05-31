@@ -35,6 +35,9 @@
         // Confirmações e Comprovantes
         private Boolean confirmacao = false;
 
+        public Transacao() {
+        }
+
         // Construtor
         public Transacao(Long idUser, String nomeCliente, String numeroConta, String cpfCnpj, String emailCliente,
                          String idTransacao, TipoPagamento tipoPagamento, double valor, LocalDateTime dataHoraTransacao,

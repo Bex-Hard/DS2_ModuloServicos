@@ -19,7 +19,7 @@ public class RecargaCelularController implements Initializable {
     public Button confirmar_pagamento;
     private final String [] metodosPgamento = {"Cartão de Débito","Cartão de Crédito","PIX"};
     private final String [] operadoras = {"Tim", "Claro", "Vivo","Oi"};
-    private final String [] valores = {"5","10","15","20","50"};
+    private final String [] valores = {"R$ 5","R$ 10","R$ 15","R$ 20","R$ 50"};
 
 
     @Override

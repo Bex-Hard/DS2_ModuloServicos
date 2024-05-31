@@ -2,11 +2,8 @@ package org.jala.moduloservico.model.DAO;
 import org.jala.moduloservico.model.CartaoCredito;
 import org.jala.moduloservico.model.Cliente;
 import org.jala.moduloservico.model.ContaCorrente;
-import org.jala.moduloservico.model.ContaPoupanca;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.jala.moduloservico.model.DAO.PostgresConnection.getConnection;
 

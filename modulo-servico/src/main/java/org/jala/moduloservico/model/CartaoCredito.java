@@ -64,6 +64,7 @@ public class CartaoCredito
     public boolean usarCredito(double valor) {
         if (saldoUtilizado + valor <= limite) {
             saldoUtilizado += valor;
+            limite -= valor;
             return true;
         }
         return false;

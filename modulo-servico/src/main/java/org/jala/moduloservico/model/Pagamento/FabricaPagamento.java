@@ -7,19 +7,19 @@ import org.jala.moduloservico.model.enums.TipoPagamento;
 import java.sql.SQLException;
 
 public class FabricaPagamento {
-    private ClienteDAO clienteDAO;
-    private Cliente cliente;
+    private final ClienteDAO clienteDAO;
+    private final Cliente cliente;
 
     public FabricaPagamento() throws SQLException {
         this.clienteDAO = inicarCliente();
         this.cliente = clienteDAO.buscarClientePorId(1L);
     }
 
-    public PagamentoStrategy getPagamentoStrategy(TipoPagamento tipoPagamento) {
+    public PagamentoStrategy getPagamentoStrategy(TipoPagamento tipoPagamento) throws SQLException {
         return switch (tipoPagamento) {
-            case CARTAO_CREDITO -> new PagamentoCartaoCredito(this.clienteDAO, cliente.getId());
-            case DEBITO_CONTA -> new PagamentoCartaoDebito(this.clienteDAO,cliente.getId());
-            case PIX -> new PagamentoPix(this.clienteDAO,cliente.getId());
+            case CARTAO_CREDITO -> new PagamentoCartaoCredito(this.clienteDAO, cliente);
+            case DEBITO_CONTA -> new PagamentoDebitoConta(this.clienteDAO,cliente);
+            case PIX -> new PagamentoPix(this.clienteDAO,cliente);
         };
     }
 

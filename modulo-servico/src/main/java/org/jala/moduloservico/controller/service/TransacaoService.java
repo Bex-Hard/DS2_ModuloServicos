@@ -5,11 +5,11 @@ import org.jala.moduloservico.model.DTO.TransacaoDTO;
 import org.jala.moduloservico.model.Pagamento.FabricaPagamento;
 import org.jala.moduloservico.model.Pagamento.PagamentoStrategy;
 import org.jala.moduloservico.model.Transacao;
-import org.jala.moduloservico.model.enums.TipoPagamento;
+
+import java.sql.SQLException;
 
 public class TransacaoService {
     private Transacao transacao;
-    private TipoPagamento tipoPagamento;
     private FabricaPagamento pagamentoFactory;
     private ClienteDAO clienteDAO;
     private TransacaoDTO transacaoDTO;
@@ -18,15 +18,27 @@ public class TransacaoService {
         this.pagamentoFactory = pagamentoFactory;
         this.clienteDAO = clienteDAO;
         this.transacaoDTO = transacaoDTO;
+        this.transacao = new Transacao();
+        criarTransacao();
     }
 
-    public void realizarTransacao() {
+    public void realizarTransacao() throws SQLException {
         PagamentoStrategy pagamentoStrategy = pagamentoFactory.getPagamentoStrategy(transacao.getTipoPagamento());
-        pagamentoStrategy.pagar();
+        Double valorDouble = Double.parseDouble(transacaoDTO.getValorTransacao());
+        atulizarStatusTransacao(pagamentoStrategy, valorDouble);
+    }
+
+    private void atulizarStatusTransacao(PagamentoStrategy pagamentoStrategy, Double valorDouble) throws SQLException {
+        if (pagamentoStrategy.pagar(valorDouble)) {
+            transacao.setConfirmacao(true);
+        }
+        else {
+            transacao.setConfirmacao(false);
+        }
     }
 
 
-    public void criarTransacao(){
+    private void criarTransacao(){
         transacao.setTipoPagamento(transacaoDTO.getTipoPagamento());
         transacao.setDescricao(transacaoDTO.getDescricao());
         transacao.setTipoServico(transacaoDTO.getTipoServicos());
