@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="500" prefWidth="795.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="500" prefWidth="795.0" styleClass="menu" stylesheets="@../Styles/menuOutrosServicos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text layoutX="384.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Meus Cartoes" />
+      <Label layoutX="299.0" layoutY="311.0" text="em desenvolvimento por outra equipe..." />
+      <FontAwesomeIconView fill="WHITE" glyphName="COGS" layoutX="337.0" layoutY="285.0" size="100" wrappingWidth="28.0" />
    </children>
 </AnchorPane>

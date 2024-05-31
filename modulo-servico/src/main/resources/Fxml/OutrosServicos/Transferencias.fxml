@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jala.moduloservico.controller.TransacaoController">
-    <Text layoutX="356.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transferencia" />
+<AnchorPane prefHeight="500.0" prefWidth="795.0" styleClass="menu" stylesheets="@../Styles/menuOutrosServicos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jala.moduloservico.controller.TransacaoController">
+   <Label layoutX="299.0" layoutY="311.0" text="em desenvolvimento por outra equipe..." />
+   <FontAwesomeIconView fill="WHITE" glyphName="COGS" layoutX="337.0" layoutY="285.0" size="100" wrappingWidth="128.0" />
 </AnchorPane>

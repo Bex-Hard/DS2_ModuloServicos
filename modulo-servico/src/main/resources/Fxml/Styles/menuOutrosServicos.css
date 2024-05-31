@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.menu {
+    -fx-background-color: #0A0F24; /* Azul Marinho */
+    -fx-text-fill: #FFFFFF; /* Branco para texto */
+    -fx-alignment: center; /* Centraliza o texto */
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-size: 16px;
+}
+.label{
+    -fx-text-fill: #FFFFFF;
+    -fx-padding: 7px;
+}
