@@ -4,18 +4,18 @@ import org.jala.moduloservico.model.enums.TipoServicos;
 import org.jala.moduloservico.model.enums.TipoPagamento;
 
 public class TransacaoDTO {
-    private String valorTransacao;
+    private String valor;
     private TipoPagamento tipoPagamento;
     private TipoServicos tipoServicos;
     private String contaDestino;
     private String descricao;
 
-    public String getValorTransacao() {
-        return valorTransacao;
+    public String getValor() {
+        return valor;
     }
 
-    public void setValorTransacao(String valorTransacao) {
-        this.valorTransacao = valorTransacao;
+    public void setValor(String valor) {
+        this.valor = valor;
     }
 
     public TipoPagamento getTipoPagamento() {

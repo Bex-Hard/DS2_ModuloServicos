@@ -24,7 +24,7 @@ public class TransacaoService {
 
     public void realizarTransacao() throws SQLException {
         PagamentoStrategy pagamentoStrategy = pagamentoFactory.getPagamentoStrategy(transacao.getTipoPagamento());
-        Double valorDouble = Double.parseDouble(transacaoDTO.getValorTransacao());
+        Double valorDouble = Double.parseDouble(transacaoDTO.getValor());
         atulizarStatusTransacao(pagamentoStrategy, valorDouble);
     }
 
@@ -42,7 +42,7 @@ public class TransacaoService {
         transacao.setTipoPagamento(transacaoDTO.getTipoPagamento());
         transacao.setDescricao(transacaoDTO.getDescricao());
         transacao.setTipoServico(transacaoDTO.getTipoServicos());
-        transacao.setValor(Integer.parseInt(transacaoDTO.getValorTransacao()));
+        transacao.setValor(Integer.parseInt(transacaoDTO.getValor()));
         //Implementação do DaoCliente
 
 

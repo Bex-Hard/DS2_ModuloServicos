@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.PasswordField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <VBox layoutX="151.0" layoutY="108.0" prefHeight="92.0" prefWidth="298.0">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Digite sua senha" />
-            <PasswordField fx:id="senha_cliente" />
-            <Text fx:id="msg_erro_senha" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha incorreta" visible="false" />
-         </children>
-      </VBox>
-   </children>
+<AnchorPane prefHeight="155.0" prefWidth="175.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jala.moduloservico.controller.ConfirmarPagamentoController">
+   <VBox fx:id="solicitar_senha" layoutX="17.0" layoutY="23.0" prefHeight="106.0" prefWidth="142.0">
+      <Label text="Senha" />
+      <TextField fx:id="senha_usuario" />
+      <Label fx:id="msg_erro" text="Label" />
+      <Button fx:id="confirmar" mnemonicParsing="false" text="Confirmar" />
+   </VBox>
+   <VBox fx:id="sucesso_transacao" layoutX="11.0" layoutY="24.0" prefHeight="89.0" prefWidth="154.0" visible="false">
+      <Label prefHeight="27.0" prefWidth="111.0" text="Sucesso!"/>
+      <Label text="Transaçao Realizada"/>
+      <FontAwesomeIconView glyphName="CHECK"/>
+   </VBox>
 </AnchorPane>

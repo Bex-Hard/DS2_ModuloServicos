@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import org.jala.moduloservico.controller.MenuClienteController;
@@ -25,20 +26,20 @@ public class ViewFactory {
     private AnchorPane confirmarBoletoView;
     private AnchorPane historicoServicoView;
     private AnchorPane recargaCelularView;
-    private BorderPane solicitarSenha;
+    private GridPane solicitarSenha;
     private AnchorPane viewHistoricoServico;
 
-//    public BorderPane getSolicitarSenha() {
-//        if (solicitarSenha == null){
-//            try{
-//                solicitarSenha = new FXMLLoader(getClass().getResource("/Fxml/Popup/SolicitarSenha.fxml")).load();
-//            }
-//            catch (Exception e){
-//                e.printStackTrace();
-//            }
-//        }
-//        return solicitarSenha;
-//    }
+    public GridPane getSolicitarSenha() {
+        if (solicitarSenha == null){
+            try{
+                solicitarSenha = new FXMLLoader(getClass().getResource("/Fxml/Popup/SolicitarSenha.fxml")).load();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return solicitarSenha;
+    }
 
     public ViewFactory( ) {
         this.selecionarOpcaoCliente = new SimpleStringProperty("");

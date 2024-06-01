@@ -10,6 +10,10 @@ public class FabricaPagamento {
     private final ClienteDAO clienteDAO;
     private final Cliente cliente;
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
     public FabricaPagamento() throws SQLException {
         this.clienteDAO = inicarCliente();
         this.cliente = clienteDAO.buscarClientePorId(1L);

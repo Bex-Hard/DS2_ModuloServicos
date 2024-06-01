@@ -1,7 +1,6 @@
 package org.jala.moduloservico.controller;
 
 import br.com.caelum.stella.boleto.Boleto;
-import br.com.caelum.stella.boleto.Endereco;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -12,8 +11,11 @@ import org.jala.moduloservico.controller.service.BoletoService;
 import org.jala.moduloservico.controller.service.TransacaoService;
 import org.jala.moduloservico.model.DTO.BoletoDTO;
 import org.jala.moduloservico.model.DTO.TransacaoDTO;
+import org.jala.moduloservico.model.Model;
 import org.jala.moduloservico.model.Pagamento.FabricaPagamento;
 import org.jala.moduloservico.model.enums.TipoPagamento;
+import org.jala.moduloservico.util.SenhaUtil;
+import org.jala.moduloservico.util.ValidacaoInputUsuario;
 
 import java.math.BigDecimal;
 import java.net.URL;
@@ -38,28 +40,38 @@ public class BoletoController implements Initializable {
     public DatePicker data_vencimento_vencimento;
     @FXML
     public Text erro_campos;
-
+    @FXML
     public Button pagar_boleto;
+    @FXML
     public Button baixar_pdf;
-
+    @FXML
     public Label nome_pagador;
+    @FXML
     public Label cpf_pagador;
+    @FXML
     public Label endereco_pagador;
+    @FXML
     public Label codigo_boleto;
+    @FXML
     public Label data_vencimento;
+    @FXML
     public Label data_processamento;
+    @FXML
     public Label texto_codigo_boleto;
+    @FXML
     public Label boleto_cliente;
 
 
     private BoletoService boletoService;
 
-    private TipoPagamento tipoPagamento;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addListeners();
-        addMonetaryValidation(valor_boleto);
+        ValidacaoInputUsuario.addMonetaryValidation(valor_boleto);
+        ValidacaoInputUsuario.addDateValidation(data_boleto);
+        ValidacaoInputUsuario.addDateValidation(data_vencimento_vencimento);
+        pagar_boleto.setOnAction(event -> solicitarConfirmacaoSenha());
 
 
     }
@@ -88,22 +100,17 @@ public class BoletoController implements Initializable {
         baixar_pdf.setOnAction(event -> {
             boletoService.gerarPDFBoleto();
         });
-        pagar_boleto.setOnAction(event -> {
-                    try {
-                        realizarTransacao();
-                    } catch (SQLException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-                );
+
 
     }
-    private void addMonetaryValidation(TextField textField) {
-        textField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!newValue.matches("\\d+(\\.\\d{0,2})?")) {
-                    textField.setText(oldValue);
+    private void solicitarConfirmacaoSenha() {
+        SenhaUtil.solicitarSenha(senhaCorreta -> {
+            if (senhaCorreta) {
+                try {
+                    realizarTransacao();
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
                 }
             }
         });
@@ -158,10 +165,6 @@ public class BoletoController implements Initializable {
         data_vencimento.setVisible(true);
         data_processamento.setVisible(true);
         texto_codigo_boleto.setVisible(true);
-
-
-
-
     }
 
     private String formatarData(LocalDate localDate){
@@ -186,7 +189,7 @@ public class BoletoController implements Initializable {
         TransacaoDTO transacaoDTO = new TransacaoDTO();
         transacaoDTO.setTipoServicos(BOLETO);
         transacaoDTO.setTipoPagamento(TipoPagamento.DEBITO_CONTA);
-        transacaoDTO.setValorTransacao(valor_boleto.getText());
+        transacaoDTO.setValor(valor_boleto.getText());
         transacaoDTO.setDescricao("Pagamento de boleto");
         return transacaoDTO;
     }

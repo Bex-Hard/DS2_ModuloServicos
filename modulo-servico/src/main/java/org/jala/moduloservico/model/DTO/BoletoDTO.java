@@ -2,7 +2,7 @@ package org.jala.moduloservico.model.DTO;
 
 import java.time.LocalDate;
 
-public class BoletoDTO {
+public class BoletoDTO  {
     private String valorBoleto;
     private LocalDate dataBoteto;
     private LocalDate dataVencimentoBoleto;
