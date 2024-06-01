@@ -3,10 +3,50 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="795.0" styleClass="menu" stylesheets="@../Styles/menuOutrosServicos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="500.0" prefWidth="795.0" styleClass="menu" stylesheets="@../Styles/menuConta.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jala.moduloservico.controller.ClienteController">
    <children>
-      <FontAwesomeIconView fill="WHITE" glyphName="COGS" layoutX="337.0" layoutY="285.0" size="100" wrappingWidth="121.14285659790039" />
-      <Label layoutX="299.0" layoutY="311.0" text="em desenvolvimento por outra equipe..." />
+      <VBox layoutX="31.0" layoutY="25.0" prefHeight="105.0" prefWidth="735.0" styleClass="menu_container_boleto">
+         <children>
+            <Label fx:id="saldo_cliente" text=" saldo_cliente">
+               <font>
+                  <Font size="56.0" />
+               </font>
+               <graphic>
+                  <Label alignment="BOTTOM_RIGHT" text=" Saldo:">
+                     <font>
+                        <Font size="56.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="#f8f8f8" glyphName="DOLLAR" />
+                     </graphic>
+                  </Label>
+               </graphic>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="399.0" layoutY="150.0" prefHeight="335.0" prefWidth="369.0" styleClass="menu_container_boleto">
+         <children>
+            <Label fx:id="saldo_cliente" text="nome_cliente">
+               <graphic>
+                  <Label text="Nome:" />
+               </graphic></Label>
+            <Label fx:id="email_cliente" layoutX="10.0" layoutY="10.0" text="email_cliente">
+               <graphic>
+                  <Label text="E-mail:" />
+               </graphic></Label>
+            <Label fx:id="agencia_cliente" layoutX="10.0" layoutY="44.0" text="agencia_cliente">
+               <graphic>
+                  <Label text="Agencia:" />
+               </graphic></Label>
+            <Label fx:id="conta_cliente" layoutX="10.0" layoutY="78.0" text="conta_cliente">
+               <graphic>
+                  <Label text="Conta:" />
+               </graphic></Label>
+         </children>
+      </VBox>
+      <FontAwesomeIconView fill="#fff9f9" glyphName="USER" layoutX="128.0" layoutY="379.0" size="250" wrappingWidth="207.0" />
    </children>
 </AnchorPane>

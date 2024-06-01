@@ -1,0 +1,21 @@
+/* Tela servico */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.menu {
+    -fx-background-color: #0A0F24; /* Azul Marinho */
+    -fx-text-fill: #FFFFFF; /* Branco para texto */
+    -fx-alignment: center; /* Centraliza o texto */
+    -fx-font-family: 'Roboto', sans-serif;
+}
+.menu_container_boleto {
+    -fx-background-color: #1C2242; /* Azul Marinho */
+    -fx-text-fill: #0A0F24; /* Branco para texto */
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-size: 16px;
+    -fx-border-radius: 20px; /* Adiciona bordas arredondadas */
+    -fx-background-radius: 20px; /* Adiciona bordas arredondadas */
+}
+.label{
+    -fx-text-fill: #FFFFFF;
+    -fx-padding: 7px;
+}

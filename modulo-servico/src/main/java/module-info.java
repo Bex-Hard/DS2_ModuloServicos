@@ -15,6 +15,7 @@ module org.jala.moduloservico {
     requires caelum.stella.boleto;
     requires java.persistence;
     requires jcommander;
+    requires java.xml.bind;
 
     opens org.jala.moduloservico to javafx.fxml;
     exports org.jala.moduloservico;
