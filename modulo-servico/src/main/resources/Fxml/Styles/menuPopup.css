@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+.menu{
+    -fx-background-color: #0A0F24;
+    -fx-alignment: center;
+}
+.label{
+    -fx-text-fill: #FFFFFF;
+    -fc-padding: 7px;
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-alignment: center;
+}
+.rounded-text-field {
+    -fx-background-color: #FFFFFF; /* Azul Marinho */
+    -fx-text-fill: #1C2242; /* Texto branco */
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-size: 16px;
+    -fx-padding: 7px; /* Padding para espaço interno */
+    -fx-background-radius: 20px; /* Bordas arredondadas */
+    -fx-border-radius: 20px; /* Bordas arredondadas */
+    -fx-border-color: transparent; /* Remover borda padrão */
+}
+.menu_container_boleto{
+    -fx-background-color: #1C2242; /* Azul Marinho */
+    -fx-text-fill: #0A0F24; /* Branco para texto */
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-size: 13px;
+    -fx-border-radius: 20px; /* Adiciona bordas arredondadas */
+    -fx-background-radius: 20px; /* Adiciona bordas arredondadas */
+    -fx-alignment: center;
+    -fc-padding: 7px;
+}
+.botao_boleto {
+    -fx-background-color: #2e346b; /* Roxo Vibrante */
+    -fx-text-fill: #FFFFFF; /* Branco */
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 10px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-alignment: center; /* Centraliza o texto */
+}
+.botao_boleto:hover {
+    -fx-background-color: #4A90E2; /* Azul Claro ao passar o mouse */
+}
+
+.botao_boleto:pressed {
+    -fx-background-color: #16cbb9; /* Cinza Claro ao pressionar */
+    -fx-text-fill:#1C2242;
+}

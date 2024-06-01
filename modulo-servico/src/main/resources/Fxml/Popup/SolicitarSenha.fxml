@@ -3,20 +3,22 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="155.0" prefWidth="175.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jala.moduloservico.controller.ConfirmarPagamentoController">
-   <VBox fx:id="solicitar_senha" layoutX="17.0" layoutY="23.0" prefHeight="106.0" prefWidth="142.0">
-      <Label text="Senha" />
-      <TextField fx:id="senha_usuario" />
-      <Label fx:id="msg_erro" text="Label" />
-      <Button fx:id="confirmar" mnemonicParsing="false" text="Confirmar" />
+<AnchorPane prefHeight="155.0" prefWidth="175.0" styleClass="menu" stylesheets="@../Styles/menuPopup.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jala.moduloservico.controller.ConfirmarPagamentoController">
+   <VBox fx:id="solicitar_senha" layoutX="17.0" layoutY="23.0" prefHeight="106.0" prefWidth="142.0" styleClass="menu">
+      <Label text="Senha:" />
+      <PasswordField fx:id="senha_usuario" styleClass="rounded-text-field" stylesheets="@../Styles/menuPopup.css" />
+      <Label fx:id="msg_erro" />
+      <Button fx:id="confirmar" alignment="CENTER" mnemonicParsing="false" styleClass="botao_boleto" text="Confirmar" />
    </VBox>
-   <VBox fx:id="sucesso_transacao" layoutX="11.0" layoutY="24.0" prefHeight="89.0" prefWidth="154.0" visible="false">
-      <Label prefHeight="27.0" prefWidth="111.0" text="Sucesso!"/>
-      <Label text="Transaçao Realizada"/>
-      <FontAwesomeIconView glyphName="CHECK"/>
+   <VBox fx:id="sucesso_transacao" layoutX="15.0" layoutY="23.0" prefHeight="89.0" prefWidth="154.0" styleClass="menu_container_boleto" stylesheets="@../Styles/menuPopup.css" visible="false">
+      <Label prefHeight="27.0" prefWidth="111.0" text="Sucesso!">
+         <graphic>
+            <FontAwesomeIconView fill="#f8f7f7" glyphName="CHECK" />
+         </graphic></Label>
+      <Label text="Transaçao Realizada" />
    </VBox>
 </AnchorPane>
