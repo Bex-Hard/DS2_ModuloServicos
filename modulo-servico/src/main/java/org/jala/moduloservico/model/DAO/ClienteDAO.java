@@ -111,74 +111,18 @@ public class ClienteDAO {
             stmt.executeUpdate();
         }
     }
+
+    public String buscarSaldoPorClienteId(Long clienteId) throws SQLException {
+        String sql = "SELECT saldo FROM conta_corrente WHERE cliente_id = ?";
+        try (Connection conn = getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setLong(1, clienteId);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getString("saldo");
+                }
+            }
+        }
+        return null;
+    }
 }
-//------------------------------------------------------------------------------------
-   /** private List<ContaPoupanca> getContasPoupancaByClienteId(int clienteId, Connection connection) {
-        List<ContaPoupanca> contasPoupanca = new ArrayList<>();
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
-
-        try {
-            String sql = "SELECT * FROM ContaPoupanca WHERE cliente_id = ?";
-            statement = connection.prepareStatement(sql);
-            statement.setInt(1, clienteId);
-            resultSet = statement.executeQuery();
-
-            while (resultSet.next()) {
-                ContaPoupanca contaPoupanca = new ContaPoupanca();
-                contaPoupanca.setNumero(resultSet.getString("numero"));
-                contaPoupanca.setSaldo(resultSet.getDouble("saldo"));
-                contaPoupanca.setTaxaDeJuros(resultSet.getDouble("taxaDeJuros"));
-                contasPoupanca.add(contaPoupanca);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            closeResources(statement, resultSet);
-        }
-        return contasPoupanca;
-    }
-
-    private List<CartaoCredito> getCartoesCreditoByClienteId(int clienteId, Connection connection) {
-        List<CartaoCredito> cartoesCredito = new ArrayList<>();
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
-
-        try {
-            String sql = "SELECT * FROM CartaoCredito WHERE cliente_id = ?";
-            statement = connection.prepareStatement(sql);
-            statement.setInt(1, clienteId);
-            resultSet = statement.executeQuery();
-
-            while (resultSet.next()) {
-                CartaoCredito cartaoCredito = new CartaoCredito();
-                cartaoCredito.setNumero(resultSet.getString("numero"));
-                cartaoCredito.setLimite(resultSet.getDouble("limite"));
-                cartaoCredito.setSaldoUtilizado(resultSet.getDouble("saldoUtilizado"));
-                cartoesCredito.add(cartaoCredito);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            closeResources(statement, resultSet);
-        }
-        return cartoesCredito;
-    }
-
-    private void closeResources(Statement statement, ResultSet resultSet) {
-        if (resultSet != null) {
-            try {
-                resultSet.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        if (statement != null) {
-            try {
-                statement.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-} **/

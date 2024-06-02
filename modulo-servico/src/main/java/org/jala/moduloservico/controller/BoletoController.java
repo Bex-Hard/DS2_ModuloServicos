@@ -1,8 +1,6 @@
 package org.jala.moduloservico.controller;
 
 import br.com.caelum.stella.boleto.Boleto;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -11,7 +9,6 @@ import org.jala.moduloservico.controller.service.BoletoService;
 import org.jala.moduloservico.controller.service.TransacaoService;
 import org.jala.moduloservico.model.DTO.BoletoDTO;
 import org.jala.moduloservico.model.DTO.TransacaoDTO;
-import org.jala.moduloservico.model.Model;
 import org.jala.moduloservico.model.Pagamento.FabricaPagamento;
 import org.jala.moduloservico.model.enums.TipoPagamento;
 import org.jala.moduloservico.util.SenhaUtil;

@@ -16,6 +16,7 @@ module org.jala.moduloservico {
     requires java.persistence;
     requires jcommander;
     requires java.xml.bind;
+    requires ecj;
 
     opens org.jala.moduloservico to javafx.fxml;
     exports org.jala.moduloservico;

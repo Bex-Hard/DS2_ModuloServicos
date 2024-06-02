@@ -46,7 +46,7 @@ public class TransacaoService {
         transacao.setTipoPagamento(transacaoDTO.getTipoPagamento());
         transacao.setDescricao(transacaoDTO.getDescricao());
         transacao.setTipoServico(transacaoDTO.getTipoServicos());
-        transacao.setValor(Integer.parseInt(transacaoDTO.getValor()));
+        transacao.setValor(Double.parseDouble(transacaoDTO.getValor()));
         //Implementação do DaoCliente
 
 

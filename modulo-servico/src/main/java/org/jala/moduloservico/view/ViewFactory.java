@@ -52,34 +52,32 @@ public class ViewFactory {
     //Menu Esquerdo de Opções do Cliente
 
     public AnchorPane getViewHistoricoServico(){
-        if (viewHistoricoServico == null){
             try {
                 viewHistoricoServico = new FXMLLoader(getClass().getResource("/Fxml/HistoricoTransacaoServicos/ViewHistoricoServico.fxml")).load();
             }
             catch (Exception e){
                 e.printStackTrace();
             }
-        }
+
+
+
         return viewHistoricoServico;
     }
     public AnchorPane getContaView(){
-        if (emprestimoView == null){
             try {
-                emprestimoView = new FXMLLoader(getClass().getResource("/Fxml/OutrosServicos/Conta.fxml")).load();
+                contaView = new FXMLLoader(getClass().getResource("/Fxml/OutrosServicos/Conta.fxml")).load();
             }
             catch (Exception e){
                 e.printStackTrace();
             }
-        }
-        return emprestimoView;
+        return contaView;
     }
 
     public AnchorPane getCartoesView(){
-        if (cartoesView == null){
+        if(cartoesView == null) {
             try {
                 cartoesView = new FXMLLoader(getClass().getResource("/Fxml/OutrosServicos/MeusCartoes.fxml")).load();
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -87,15 +85,15 @@ public class ViewFactory {
     }
 
     public AnchorPane getEmprestimoView(){
-        if (contaView == null){
+        if (emprestimoView == null){
             try {
-                contaView = new FXMLLoader(getClass().getResource("/Fxml/OutrosServicos/Emprestimos.fxml")).load();
+                emprestimoView = new FXMLLoader(getClass().getResource("/Fxml/OutrosServicos/Emprestimos.fxml")).load();
             }
             catch (Exception e){
                 e.printStackTrace();
             }
         }
-        return contaView;
+        return emprestimoView;
     }
 
     public AnchorPane getMenuServicosView(){
@@ -120,20 +118,21 @@ public class ViewFactory {
             }
         }
 
+
         return transferenciaView;
     }
 
     //Pagamento de boleto
 
     public AnchorPane getPagarBoletoView(){
-        if (pagarBoletoView == null){
+if (pagarBoletoView == null){
             try {
                 pagarBoletoView = new FXMLLoader(getClass().getResource("/Fxml/Boleto/PagarBoleto.fxml")).load();
             }
             catch (Exception e){
                 e.printStackTrace();
             }
-        }
+}
         return pagarBoletoView;
     }
     public AnchorPane getConfirmaPagarBoletoView(){
@@ -150,28 +149,24 @@ public class ViewFactory {
 
     //Historico Servico
     public AnchorPane getHistoricoServicoView(){
-        if (emprestimoView == null){
             try {
-                emprestimoView = new FXMLLoader(getClass().getResource("/Fxml/HistoricoTransacaoServicos/HistoricoServico.fxml")).load();
+                historicoServicoView = new FXMLLoader(getClass().getResource("/Fxml/HistoricoTransacaoServicos/HistoricoServico.fxml")).load();
             }
             catch (Exception e){
                 e.printStackTrace();
             }
-        }
-        return emprestimoView;
+        return historicoServicoView;
     }
 
     //Recarga Celular
 
 
     public AnchorPane getRecargaCelularView() {
-        if (recargaCelularView == null){
             try{
                 recargaCelularView = new FXMLLoader(getClass().getResource("/Fxml/Celular/Recarga.fxml")).load();
             }catch (Exception e) {
                 e.printStackTrace();
             }
-        }
         return recargaCelularView;
     }
     public void solicitarSenha(){
@@ -202,6 +197,8 @@ public class ViewFactory {
         stage.setTitle("JalaBank");
         stage.show();
     }
+
+
 
 
     public void atualizarOpcao(String botaoOpcao){
