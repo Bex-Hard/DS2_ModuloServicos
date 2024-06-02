@@ -31,7 +31,7 @@ public class ClienteController implements Initializable {
     }
 
     private void mostrarDados(Cliente cliente, ContaCorrente contaCorrente){
-        saldo_cliente.setText(contaCorrente.getSaldo());
+        saldo_cliente.setText(String.valueOf(contaCorrente.getSaldo()));
         nome_cliente.setText(cliente.getNome());
         email_cliente.setText(cliente.getEmail());
         agencia_cliente.setText(contaCorrente.getNumeroAgencia());

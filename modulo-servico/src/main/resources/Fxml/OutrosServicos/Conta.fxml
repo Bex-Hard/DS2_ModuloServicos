@@ -29,7 +29,7 @@
       </VBox>
       <VBox layoutX="399.0" layoutY="150.0" prefHeight="335.0" prefWidth="369.0" styleClass="menu_container_boleto">
          <children>
-            <Label fx:id="saldo_cliente" text="nome_cliente">
+            <Label fx:id="nome_cliente" text="nome_cliente">
                <graphic>
                   <Label text="Nome:" />
                </graphic></Label>

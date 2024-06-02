@@ -48,7 +48,7 @@ public class ContaCorrente {
         this.numeroConta = numeroConta;
     }
 
-    public String getSaldo() {
+    public double getSaldo() {
         return saldo;
     }
 
