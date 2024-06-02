@@ -45,5 +45,4 @@ public class ConfirmarPagamentoController implements Initializable {
             msg_erro.setText("Senha incorreta. Tente novamente.");
         }
     }
-
 }

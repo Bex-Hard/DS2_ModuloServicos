@@ -2,6 +2,7 @@ package org.jala.moduloservico.controller;
 
 import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
+import org.controlsfx.tools.Platform;
 import org.jala.moduloservico.model.Model;
 
 import java.net.URL;
@@ -26,7 +27,6 @@ public class MenuClienteController implements Initializable {
                         case "ConfirmaBoleto" -> menu_principal.setCenter(Model.getInstance().getViewFactory().getConfirmaPagarBoletoView());
                         case "Celular" -> menu_principal.setCenter((Model.getInstance().getViewFactory().getRecargaCelularView()));
                         case "Senha" -> Model.getInstance().getViewFactory().solicitarSenha();
-
                         case "HistoricoFiltrado" -> menu_principal.setCenter(Model.getInstance().getViewFactory().getViewHistoricoServico());
 
                         default -> menu_principal.setCenter(Model.getInstance().getViewFactory().getMenuServicosView());

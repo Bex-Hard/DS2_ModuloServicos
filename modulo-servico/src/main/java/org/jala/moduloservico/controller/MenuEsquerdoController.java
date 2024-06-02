@@ -1,5 +1,6 @@
 package org.jala.moduloservico.controller;
 
+import javafx.application.Platform;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -28,6 +29,7 @@ public class MenuEsquerdoController implements Initializable {
         cartoes_botao.setOnAction(event -> Model.getInstance().getViewFactory().atualizarOpcao("Cartoes"));
         emprestimos_botao.setOnAction(event -> Model.getInstance().getViewFactory().atualizarOpcao("Emprestimo"));
         conta_botao.setOnAction(event -> Model.getInstance().getViewFactory().atualizarOpcao("Conta"));
+        sair_botao.setOnAction(event -> Platform.exit());
     }
 
 
