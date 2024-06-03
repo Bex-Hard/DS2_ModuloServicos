@@ -52,14 +52,13 @@ public class ViewFactory {
     //Menu Esquerdo de Opções do Cliente
 
     public AnchorPane getViewHistoricoServico(){
+        if (viewHistoricoServico == null) {
             try {
                 viewHistoricoServico = new FXMLLoader(getClass().getResource("/Fxml/HistoricoTransacaoServicos/ViewHistoricoServico.fxml")).load();
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-
-
+        }
 
         return viewHistoricoServico;
     }

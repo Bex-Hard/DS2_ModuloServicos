@@ -22,8 +22,7 @@ public class FabricaPagamento {
     public PagamentoStrategy getPagamentoStrategy(TipoPagamento tipoPagamento) throws SQLException {
         return switch (tipoPagamento) {
             case CARTAO_CREDITO -> new PagamentoCartaoCredito(this.clienteDAO, cliente);
-            case DEBITO_CONTA -> new PagamentoDebitoConta(this.clienteDAO,cliente);
-            case PIX -> new PagamentoPix(this.clienteDAO,cliente);
+            case DEBITO -> new PagamentoDebitoConta(this.clienteDAO,cliente);
         };
     }
 
