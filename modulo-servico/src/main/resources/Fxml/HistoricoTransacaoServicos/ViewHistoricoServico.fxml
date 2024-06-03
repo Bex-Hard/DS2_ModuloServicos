@@ -19,11 +19,12 @@
     <FontAwesomeIconView fill="WHITE" glyphName="BANK" layoutX="659.0" layoutY="466.0" size="100" visible="false" wrappingWidth="119.9166259765625" />
     <TableView fx:id="lista_transacao" layoutX="14.0" layoutY="78.0" prefHeight="380.0" prefWidth="748.0">
       <columns>
-         <TableColumn fx:id="id_transacao" prefWidth="108.0" text="ID" />
-          <TableColumn fx:id="tipo_pagamento" prefWidth="99.0" text="Tipo de Pagamento" />
+         <TableColumn fx:id="id_transacao" prefWidth="98.0" text="ID" />
+          <TableColumn fx:id="tipo_pagamento" prefWidth="109.0" text="Tipo de Pagamento" />
           <TableColumn fx:id="valor_transacao" prefWidth="86.0" text="Valor (R$)" />
-         <TableColumn fx:id="data" prefWidth="75.0" text="Data" />
-          <TableColumn fx:id="status" prefWidth="67.0" text="Status" />
+         <TableColumn fx:id="tipo_servico" prefWidth="92.0" text="Tipo Serviço" />
+         <TableColumn fx:id="data" prefWidth="103.0" text="Data" />
+          <TableColumn fx:id="status" prefWidth="82.0" text="Status" />
       </columns>
     </TableView>
 </AnchorPane>

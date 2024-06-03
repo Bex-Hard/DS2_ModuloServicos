@@ -27,7 +27,7 @@ public class RecargaCelularController implements Initializable {
     public ChoiceBox valor_recarga;
     public ChoiceBox forma_pagamento;
     public Button confirmar_pagamento;
-    private final String [] metodosPgamento = {"Débito em Conta","Cartão de Crédito","PIX"};
+    private final String [] metodosPgamento = {"Débito em Conta","Cartão de Crédito"};
     private final String [] operadoras = {"Tim", "Claro", "Vivo","Oi"};
     private final String [] valores = {"R$ 10","R$ 20","R$ 30","R$ 40","R$ 50","R$ 60"};
 

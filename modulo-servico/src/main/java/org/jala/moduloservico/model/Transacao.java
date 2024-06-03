@@ -18,7 +18,7 @@
         // Dados da Transação
         private TipoPagamento tipoPagamento;
         private double valor;
-        private LocalDateTime dataHoraTransacao;
+        private String dataHoraTransacao;
         private String moeda = "R$";
 
         // Dados das Contas Envolvidas
@@ -40,7 +40,7 @@
 
         // Construtor
         public Transacao(Long idUser, String nomeCliente, String numeroConta, String cpfCnpj, String emailCliente,
-                         String idTransacao, TipoPagamento tipoPagamento, double valor, LocalDateTime dataHoraTransacao,
+                         String idTransacao, TipoPagamento tipoPagamento, double valor, String dataHoraTransacao,
                          String moeda, String contaOrigem, String contaDestino,
                          TipoServicos tipoServico, String numeroCartao, String descricao,
                          Boolean confirmacao) {
@@ -124,11 +124,11 @@
             this.valor = valor;
         }
 
-        public LocalDateTime getDataHoraTransacao() {
+        public String getDataHoraTransacao() {
             return dataHoraTransacao;
         }
 
-        public void setDataHoraTransacao(LocalDateTime dataHoraTransacao) {
+        public void setDataHoraTransacao(String dataHoraTransacao) {
             this.dataHoraTransacao = dataHoraTransacao;
         }
 

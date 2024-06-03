@@ -8,9 +8,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.time.format.DateTimeFormatter;
+
+
 
 import static org.jala.moduloservico.model.DAO.PostgresConnection.getConnection;
 
@@ -26,6 +28,10 @@ public class HistoricoTransacaoDAO {
             stmt.setLong(1, idUser);
             try (ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
+                    String dataHoraFormatada = rs.getTimestamp("data_hora_transacao")
+                            .toLocalDateTime()
+                            .format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
+
                     Transacao transacao = new Transacao(
                             rs.getLong("id_user"),
                             rs.getString("nome_cliente"),
@@ -35,7 +41,7 @@ public class HistoricoTransacaoDAO {
                             rs.getString("id_transacao"),
                             TipoPagamento.valueOf(rs.getString("tipo_pagamento")),
                             rs.getDouble("valor"),
-                            rs.getTimestamp("data_hora_transacao").toLocalDateTime(),
+                            dataHoraFormatada,
                             rs.getString("moeda"),
                             rs.getString("conta_origem"),
                             rs.getString("conta_destino"),

@@ -13,6 +13,7 @@ import org.jala.moduloservico.model.Transacao;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -35,6 +36,8 @@ public class ViewHistoricoServicoController implements Initializable {
     public TableColumn<Transacao, String> id_transacao;
     @FXML
     public TableColumn<Transacao, String> data;
+    @FXML
+    public TableColumn<Transacao, String> tipo_servico;
 
     private HistoricoTransacaoDAO historicoTransacaoDAO;
     private ObservableList<Transacao> transacaoList;
@@ -51,8 +54,10 @@ public class ViewHistoricoServicoController implements Initializable {
     private void carregarTabela() {
         tipo_pagamento.setCellValueFactory(new PropertyValueFactory<>("tipoPagamento"));
         valor_transacao.setCellValueFactory(new PropertyValueFactory<>("valor"));
-        conta_destino.setCellValueFactory(new PropertyValueFactory<>("contaDestino"));
         status.setCellValueFactory(new PropertyValueFactory<>("confirmacao"));
+        data.setCellValueFactory(new PropertyValueFactory<>("dataHoraTransacao"));
+        id_transacao.setCellValueFactory(new PropertyValueFactory<>("idTransacao"));
+        tipo_servico.setCellValueFactory(new PropertyValueFactory<>("tipoServico"));
     }
 
     private void atualizarTransacoes(Long idUser) {
