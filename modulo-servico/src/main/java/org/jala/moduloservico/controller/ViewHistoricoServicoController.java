@@ -28,13 +28,13 @@ public class ViewHistoricoServicoController implements Initializable {
     @FXML
     public TableColumn<Transacao, Double> valor_transacao;
     @FXML
-    public TableColumn<Transacao, String> conta_destino;
-    @FXML
     public TableColumn<Transacao, Boolean> status;
     @FXML
     public TableColumn<Transacao, String> id_transacao;
     @FXML
     public TableColumn<Transacao, String> data;
+    @FXML
+    public TableColumn<Transacao, String> tipo_servico;
 
     private HistoricoTransacaoDAO historicoTransacaoDAO;
     private ObservableList<Transacao> transacaoList;
@@ -51,8 +51,12 @@ public class ViewHistoricoServicoController implements Initializable {
     private void carregarTabela() {
         tipo_pagamento.setCellValueFactory(new PropertyValueFactory<>("tipoPagamento"));
         valor_transacao.setCellValueFactory(new PropertyValueFactory<>("valor"));
-        conta_destino.setCellValueFactory(new PropertyValueFactory<>("contaDestino"));
         status.setCellValueFactory(new PropertyValueFactory<>("confirmacao"));
+        id_transacao.setCellValueFactory(new PropertyValueFactory<>("idTransacao"));
+        tipo_servico.setCellValueFactory(new PropertyValueFactory<>("tipoServico"));
+        data.setCellValueFactory(new PropertyValueFactory<>("dataHoraTransacao"));
+
+
     }
 
     private void atualizarTransacoes(Long idUser) {
