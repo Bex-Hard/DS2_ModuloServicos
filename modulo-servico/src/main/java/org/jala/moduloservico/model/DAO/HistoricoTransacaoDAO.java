@@ -16,9 +16,18 @@ import java.time.format.DateTimeFormatter;
 
 import static org.jala.moduloservico.model.DAO.PostgresConnection.getConnection;
 
-
+/**
+ * Classe responsável pelo acesso aos dados do histórico de transações no banco de dados.
+ */
 public class HistoricoTransacaoDAO {
 
+    /**
+     * Lista todas as transações de um cliente específico, ordenadas pela data e hora da transação em ordem decrescente.
+     *
+     * @param idUser o ID do usuário cujas transações serão listadas.
+     * @return uma lista de transações do usuário.
+     * @throws SQLException se ocorrer um erro ao acessar o banco de dados.
+     */
     public List<Transacao> listarTransacoesPorCliente(Long idUser) throws SQLException {
         String sql = "SELECT * FROM transacoes WHERE id_user = ? ORDER BY data_hora_transacao DESC";
         List<Transacao> transacoes = new ArrayList<>();

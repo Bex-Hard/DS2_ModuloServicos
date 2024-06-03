@@ -8,9 +8,15 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import org.jala.moduloservico.model.Pagamento.FabricaPagamento;
 
-
+/**
+ * Classe utilitária para solicitação de senha.
+ */
 public class SenhaUtil {
 
+    /**
+     * Método estático para solicitar a senha ao usuário.
+     * @param listener O Listener de Verificação de Senha.
+     */
     public static void solicitarSenha(SenhaVerificacaoListener listener) {
         try {
             FXMLLoader loader = new FXMLLoader(SenhaUtil.class.getResource("/Fxml/Popup/SolicitarSenha.fxml"));

@@ -7,9 +7,18 @@ import java.sql.*;
 
 import static org.jala.moduloservico.model.DAO.PostgresConnection.getConnection;
 
+/**
+ * Classe responsável pelo acesso aos dados dos clientes no banco de dados.
+ */
 public class ClienteDAO {
 
-
+    /**
+     * Busca um cliente pelo seu ID.
+     *
+     * @param id o ID do cliente a ser buscado.
+     * @return o cliente encontrado, ou null se nenhum cliente for encontrado.
+     * @throws SQLException se ocorrer um erro ao acessar o banco de dados.
+     */
     public Cliente buscarClientePorId(Long id) throws SQLException {
         String sql = "SELECT * FROM clientes WHERE id = ?";
         try (Connection conn = getConnection();
@@ -37,7 +46,13 @@ public class ClienteDAO {
         }
         return null;
     }
-
+    /**
+     * Busca a conta corrente de um cliente pelo ID do cliente.
+     *
+     * @param clienteId o ID do cliente.
+     * @return a conta corrente do cliente, ou null se nenhuma conta for encontrada.
+     * @throws SQLException se ocorrer um erro ao acessar o banco de dados.
+     */
     public ContaCorrente buscarContaCorrentePorClienteId(Long clienteId) throws SQLException {
         String sql = "SELECT * FROM conta_corrente WHERE cliente_id = ?";
         try (Connection conn = getConnection();
@@ -60,7 +75,13 @@ public class ClienteDAO {
         }
         return null;
     }
-
+    /**
+     * Busca o cartão de crédito de uma conta corrente pelo ID da conta corrente.
+     *
+     * @param contaCorrenteId o ID da conta corrente.
+     * @return o cartão de crédito da conta corrente, ou null se nenhum cartão for encontrado.
+     * @throws SQLException se ocorrer um erro ao acessar o banco de dados.
+     */
     public CartaoCredito buscarCartaoCreditoPorContaCorrenteId(Long contaCorrenteId) throws SQLException {
         String sql = "SELECT * FROM cartao_credito WHERE conta_corrente_id = ?";
         try (Connection conn = getConnection();
@@ -81,7 +102,13 @@ public class ClienteDAO {
         }
         return null;
     }
-
+    /**
+     * Atualiza o saldo de uma conta corrente.
+     *
+     * @param contaCorrenteId o ID da conta corrente.
+     * @param novoSaldo o novo saldo da conta corrente.
+     * @throws SQLException se ocorrer um erro ao acessar o banco de dados.
+     */
     public void atualizarSaldoContaCorrente(Long contaCorrenteId, double novoSaldo) throws SQLException {
         String sql = "UPDATE conta_corrente SET saldo = ? WHERE id = ?";
         try (Connection conn = getConnection();
@@ -91,7 +118,13 @@ public class ClienteDAO {
             stmt.executeUpdate();
         }
     }
-
+    /**
+     * Atualiza o limite de um cartão de crédito.
+     *
+     * @param cartaoId o ID do cartão de crédito.
+     * @param novoLimite o novo limite do cartão de crédito.
+     * @throws SQLException se ocorrer um erro ao acessar o banco de dados.
+     */
     public void atualizarLimiteCartaoCredito(Long cartaoId, double novoLimite) throws SQLException {
         String sql = "UPDATE cartao_credito SET limite = ? WHERE id = ?";
         try (Connection conn = getConnection();
@@ -101,7 +134,13 @@ public class ClienteDAO {
             stmt.executeUpdate();
         }
     }
-
+    /**
+     * Atualiza o saldo utilizado de um cartão de crédito.
+     *
+     * @param cartaoId o ID do cartão de crédito.
+     * @param novoSaldoUtilizado o novo saldo utilizado do cartão de crédito.
+     * @throws SQLException se ocorrer um erro ao acessar o banco de dados.
+     */
     public void atualizarSaldoUtilizadoCartaoCredito(Long cartaoId, double novoSaldoUtilizado) throws SQLException {
         String sql = "UPDATE cartao_credito SET saldo_utilizado = ? WHERE id = ?";
         try (Connection conn = getConnection();
@@ -111,7 +150,13 @@ public class ClienteDAO {
             stmt.executeUpdate();
         }
     }
-
+    /**
+     * Busca o saldo de uma conta corrente pelo ID do cliente.
+     *
+     * @param clienteId o ID do cliente.
+     * @return o saldo da conta corrente do cliente, ou null se nenhuma conta for encontrada.
+     * @throws SQLException se ocorrer um erro ao acessar o banco de dados.
+     */
     public String buscarSaldoPorClienteId(Long clienteId) throws SQLException {
         String sql = "SELECT saldo FROM conta_corrente WHERE cliente_id = ?";
         try (Connection conn = getConnection();

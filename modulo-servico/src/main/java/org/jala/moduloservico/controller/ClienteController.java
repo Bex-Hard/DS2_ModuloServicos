@@ -11,6 +11,9 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+/**
+ * Controlador para exibir os dados do cliente.
+ */
 public class ClienteController extends ClienteDAO implements Initializable {
 
 
@@ -28,6 +31,12 @@ public class ClienteController extends ClienteDAO implements Initializable {
     public Cliente cliente = StartCliente.getInstance().getCliente();
 
 
+    /**
+     * Inicializa o controlador, exibindo os dados do cliente.
+     *
+     * @param url            o URL utilizado para resolver caminhos relativos para o objeto raiz ou null se o local não é conhecido.
+     * @param resourceBundle o ResourceBundle para localizar objetos raiz ou null se o recurso não é especificado.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -38,6 +47,11 @@ public class ClienteController extends ClienteDAO implements Initializable {
 
     }
 
+    /**
+     * Exibe os dados do cliente nos componentes visuais.
+     *
+     * @throws SQLException se houver um erro ao acessar o banco de dados.
+     */
     private void mostrarDados() throws SQLException {
         
         saldo_cliente.setText(saldoAtualizado());
@@ -47,6 +61,11 @@ public class ClienteController extends ClienteDAO implements Initializable {
         conta_cliente.setText(cliente.getContaCorrente().getNumeroConta());
     }
 
+    /**
+     * Obtém o saldo atualizado do cliente.
+     *
+     * @return o saldo atualizado do cliente como uma string.
+     */
     private String saldoAtualizado(){
         String saldo = "";
         try {

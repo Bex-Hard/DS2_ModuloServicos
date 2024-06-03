@@ -5,6 +5,9 @@ import java.util.Date;
 
 public class CartaoCredito
 {
+    /**
+     * Atributos do Cartão de Crédito
+     */
     private long id;
     private String numeroCartao;
     private String cvv;
@@ -12,20 +15,36 @@ public class CartaoCredito
     private double saldoUtilizado;
     private LocalDate validade;
 
+    /**
+     * Construtor
+     */
+    public CartaoCredito( ) {
+
+    }
+
+    /**
+     * Método que cria a regra de negócio para uso do crédito
+     * @param valor
+     * @return
+     */
+    public boolean usarCredito(double valor) {
+        if (saldoUtilizado + valor <= limite) {
+            saldoUtilizado += valor;
+            limite -= valor;
+            return true;
+        }
+        return false;
+    }
+    /**
+     * getters e setters
+     * @return
+     */
     public long getId() {
         return id;
     }
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public LocalDate getValidade() {
-        return validade;
-    }
-
-    public String getNumeroCartao() {
-        return numeroCartao;
     }
 
     public void setNumeroCartao(String numeroCartao) {
@@ -36,40 +55,9 @@ public class CartaoCredito
         this.validade = validade;
     }
 
-    public String getNumero() {
-        return numeroCartao;
-    }
-
-    public void setNumero(String numero) {
-        this.numeroCartao = numero;
-    }
-
-    public String getCvv() {
-        return cvv;
-    }
-
     public void setCvv(String cvv) {
         this.cvv = cvv;
     }
-
-    public CartaoCredito(String numeroCartao, double limite) {
-
-        this.limite = limite;
-    }
-
-    public CartaoCredito( ) {
-
-    }
-
-    public boolean usarCredito(double valor) {
-        if (saldoUtilizado + valor <= limite) {
-            saldoUtilizado += valor;
-            limite -= valor;
-            return true;
-        }
-        return false;
-    }
-
 
     public double getLimite() {
         return limite;

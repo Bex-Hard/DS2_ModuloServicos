@@ -5,12 +5,17 @@ import org.jala.moduloservico.model.DAO.ClienteDAO;
 
 import java.sql.SQLException;
 
+/**
+ * Classe responsável por iniciar o cliente e obter sua instância única.
+ */
 public class StartCliente {
     private static StartCliente instance;
     private final ClienteDAO clienteDAO;
     private Cliente cliente;
 
-    // Construtor privado para evitar instanciação direta
+    /**
+     * Construtor privado para evitar instanciação direta
+     */
     private StartCliente() {
         this.clienteDAO = new ClienteDAO();
         try {
@@ -20,7 +25,10 @@ public class StartCliente {
         }
     }
 
-    // Método para obter a instância única de StartCliente
+    /**
+     *  Método para obter a instância única de StartCliente
+     * @return a instância única de start cliente
+     */
     public static synchronized StartCliente getInstance() {
         if (instance == null) {
             instance = new StartCliente();
@@ -28,7 +36,9 @@ public class StartCliente {
         return instance;
     }
 
-    // Método para obter o cliente
+    /**
+     * Método para obter o cliente
+      */
     public Cliente getCliente() {
         return cliente;
     }

@@ -6,39 +6,72 @@
 
     public class Transacao {
 
+        /**
+         * IDs do usuário e da transação
+         */
         private long idUser;
         private String idTransacao;
 
-        // Dados do Cliente
+        /**
+         * Dados do Cliente
+         */
         private String nomeCliente;
         private String numeroConta;
         private String cpfCnpj;
         private String emailCliente;
 
-        // Dados da Transação
+        /**
+         * Dados da Transação
+         */
         private TipoPagamento tipoPagamento;
         private double valor;
         private String dataHoraTransacao;
         private String moeda = "R$";
 
-        // Dados das Contas Envolvidas
+        /**
+         * Dados das Contas Envolvidas
+         */
         private String contaOrigem;
         private String contaDestino;
 
-        // Método de Transação
+        /**
+         * Método de Transação
+         */
         private TipoServicos tipoServico;
         private String numeroCartao;
 
-        // Descrição e Finalidade
+        /**
+         * Descrição e finalidade
+         */
         private String descricao;
 
-        // Confirmações e Comprovantes
+        /**
+         * Confirmações e Comprovantes
+         */
         private Boolean confirmacao = false;
 
         public Transacao() {
         }
 
-        // Construtor
+        /**
+         * Construtor
+         * @param idUser
+         * @param nomeCliente
+         * @param numeroConta
+         * @param cpfCnpj
+         * @param emailCliente
+         * @param idTransacao
+         * @param tipoPagamento
+         * @param valor
+         * @param dataHoraTransacao
+         * @param moeda
+         * @param contaOrigem
+         * @param contaDestino
+         * @param tipoServico
+         * @param numeroCartao
+         * @param descricao
+         * @param confirmacao
+         */
         public Transacao(Long idUser, String nomeCliente, String numeroConta, String cpfCnpj, String emailCliente,
                          String idTransacao, TipoPagamento tipoPagamento, double valor, String dataHoraTransacao,
                          String moeda, String contaOrigem, String contaDestino,
@@ -64,7 +97,10 @@
             this.tipoPagamento = tipoPagamento;
         }
 
-        // Getters e Setters
+        /**
+         * getters e setters
+         * @return
+         */
 
         public long getIdUser() {
             return idUser;

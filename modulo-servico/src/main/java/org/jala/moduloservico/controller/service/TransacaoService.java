@@ -8,8 +8,9 @@ import org.jala.moduloservico.model.Pagamento.PagamentoStrategy;
 import org.jala.moduloservico.model.Transacao;
 
 import java.sql.SQLException;
-import java.util.List;
-
+/**
+ * Responsável por realizar uma transação de pagamento.
+ */
 public class TransacaoService {
     private Transacao transacao;
     private FabricaPagamento pagamentoFactory;
@@ -18,6 +19,13 @@ public class TransacaoService {
 
     private HistoricoTransacaoDAO historicoTransacaoDAO = new HistoricoTransacaoDAO();
 
+    /**
+     * Construtor da classe TransacaoService.
+     *
+     * @param pagamentoFactory a fábrica de pagamentos para obter a estratégia de pagamento
+     * @param clienteDAO o DAO do cliente para atualizar as informações de transação
+     * @param transacaoDTO o DTO da transação contendo as informações do pagamento
+     */
     public TransacaoService(FabricaPagamento pagamentoFactory, ClienteDAO clienteDAO, TransacaoDTO transacaoDTO) {
         this.pagamentoFactory = pagamentoFactory;
         this.clienteDAO = clienteDAO;
@@ -25,13 +33,23 @@ public class TransacaoService {
         this.transacao = new Transacao();
         criarTransacao();
     }
-
+    /**
+     * Realiza a transação de pagamento.
+     *
+     * @throws SQLException se ocorrer um erro ao realizar a transação no banco de dados
+     */
     public void realizarTransacao() throws SQLException {
         PagamentoStrategy pagamentoStrategy = pagamentoFactory.getPagamentoStrategy(transacao.getTipoPagamento());
         Double valorDouble = Double.parseDouble(transacaoDTO.getValor());
         atulizarStatusTransacao(pagamentoStrategy, valorDouble);
     }
-
+    /**
+     * Atualiza o status da transação com base na estratégia de pagamento.
+     *
+     * @param pagamentoStrategy a estratégia de pagamento utilizada na transação
+     * @param valorDouble o valor da transação
+     * @throws SQLException se ocorrer um erro ao acessar o banco de dados
+     */
     private void atulizarStatusTransacao(PagamentoStrategy pagamentoStrategy, Double valorDouble) throws SQLException {
         if (pagamentoStrategy.pagar(valorDouble)) {
             transacao.setConfirmacao(true);
@@ -40,8 +58,9 @@ public class TransacaoService {
             transacao.setConfirmacao(false);
         }
     }
-
-
+    /**
+     * Cria a transação com base nas informações do DTO de transação.
+     */
     private void criarTransacao(){
         transacao.setTipoPagamento(transacaoDTO.getTipoPagamento());
         transacao.setDescricao(transacaoDTO.getDescricao());

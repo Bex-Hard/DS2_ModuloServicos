@@ -1,12 +1,19 @@
 package org.jala.moduloservico.model.DTO;
 
 import org.jala.moduloservico.model.enums.Operadoras;
-
+/**
+ * Classe DTO (Data Transfer Object) para transferência de dados de recarga de celular.
+ */
 public class RecargaDTO {
+    /**
+     * Atributos
+     */
     private double valor;
-    private Operadoras operadora;
-    private String celularRecarregado;
 
+    /**
+     * getters e setters
+     * @return
+     */
     public double getValor() {
         return valor;
     }
@@ -15,19 +22,4 @@ public class RecargaDTO {
         this.valor = valor;
     }
 
-    public Operadoras getOperadora() {
-        return operadora;
-    }
-
-    public void setOperadora(Operadoras operadora) {
-        this.operadora = operadora;
-    }
-
-    public String getCelularRecarregado() {
-        return celularRecarregado;
-    }
-
-    public void setCelularRecarregado(String celularRecarregado) {
-        this.celularRecarregado = celularRecarregado;
-    }
 }

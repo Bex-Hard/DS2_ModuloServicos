@@ -10,7 +10,9 @@ import org.jala.moduloservico.model.DTO.BoletoDTO;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Calendar;
-
+/**
+ * Responsável pela geração e manipulação de boletos de pagamento.
+ */
 public class BoletoService {
 
     private Datas datas;
@@ -23,19 +25,32 @@ public class BoletoService {
     private Cliente cliente;
     private ClienteDAO clienteDAO;
 
-
+    /**
+     * Obtém o boleto gerado.
+     *
+     * @return o boleto gerado
+     */
     public Boleto getBoleto() {
         return boleto;
     }
 
-
+    /**
+     * Construtor da classe BoletoService.
+     *
+     * @throws SQLException se ocorrer um erro ao acessar o banco de dados
+     */
     public BoletoService() throws SQLException {
 
         this.banco = new BancoDoBrasil();
         this.clienteDAO = new ClienteDAO();
         this.cliente = clienteDAO.buscarClientePorId(1L);
     }
-
+    /**
+     * Gera um boleto de pagamento com base nas informações fornecidas no DTO do boleto.
+     *
+     * @param boletoDTO o DTO do boleto contendo as informações necessárias
+     * @return o boleto gerado
+     */
     public Boleto gerarBoleto(BoletoDTO boletoDTO){
 
         enderecoBeneficiario = Endereco.novoEndereco()
@@ -80,12 +95,21 @@ public class BoletoService {
                 .comLocaisDePagamento("local 1", "local 2");
         return boleto;
     }
-
+    /**
+     * Gera o arquivo PDF do boleto.
+     */
     public void gerarPDFBoleto(){
         GeradorDeBoleto gerador = new GeradorDeBoleto(boleto);
         gerador.geraPDF("Boleto_JalaBank.pdf");
     }
 
+    /**
+     * Define as datas do boleto.
+     *
+     * @param criacaoBoleto a data de criação do boleto
+     * @param vencimentoBoleto a data de vencimento do boleto
+     * @return as datas configuradas para o boleto
+     */
     private Datas setDatas(LocalDate criacaoBoleto, LocalDate vencimentoBoleto){
         Calendar calendar = Calendar.getInstance();
         int dia = calendar.get(Calendar.DAY_OF_MONTH);
@@ -101,8 +125,4 @@ public class BoletoService {
         }
         return null;
     }
-
-
-
-
 }

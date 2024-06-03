@@ -4,7 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -13,12 +12,14 @@ import org.jala.moduloservico.model.Transacao;
 
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Controlador para a visualização do histórico de serviços.
+ */
 public class ViewHistoricoServicoController implements Initializable {
 
     @FXML
@@ -39,6 +40,12 @@ public class ViewHistoricoServicoController implements Initializable {
     private HistoricoTransacaoDAO historicoTransacaoDAO;
     private ObservableList<Transacao> transacaoList;
 
+    /**
+     * Inicializa o controlador.
+     *
+     * @param url o URL utilizado para resolver caminhos relativos para o objeto raiz ou null se o local não é conhecido.
+     * @param resourceBundle o ResourceBundle para localizar objetos raiz ou null se o recurso não é especificado.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         historicoTransacaoDAO = new HistoricoTransacaoDAO();
@@ -47,7 +54,9 @@ public class ViewHistoricoServicoController implements Initializable {
         carregarTabela();
         atualizarTransacoes(1L);
     }
-
+    /**
+     * Configura as colunas da tabela para exibir as propriedades das transações.
+     */
     private void carregarTabela() {
         tipo_pagamento.setCellValueFactory(new PropertyValueFactory<>("tipoPagamento"));
         valor_transacao.setCellValueFactory(new PropertyValueFactory<>("valor"));
@@ -58,7 +67,11 @@ public class ViewHistoricoServicoController implements Initializable {
 
 
     }
-
+    /**
+     * Atualiza a lista de transações para o cliente especificado.
+     *
+     * @param idUser o ID do cliente cujas transações devem ser listadas.
+     */
     private void atualizarTransacoes(Long idUser) {
         try {
             List<Transacao> transacoes = historicoTransacaoDAO.listarTransacoesPorCliente(idUser);

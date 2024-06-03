@@ -12,7 +12,9 @@ import javafx.stage.Stage;
 import org.jala.moduloservico.controller.MenuClienteController;
 import org.jala.moduloservico.model.Model;
 
-
+/**
+ * Classe responsável por criar e gerenciar as diferentes views da aplicação.
+ */
 public class ViewFactory {
 
     private final StringProperty selecionarOpcaoCliente;
@@ -29,28 +31,29 @@ public class ViewFactory {
     private GridPane solicitarSenha;
     private AnchorPane viewHistoricoServico;
 
-    public GridPane getSolicitarSenha() {
-        if (solicitarSenha == null){
-            try{
-                solicitarSenha = new FXMLLoader(getClass().getResource("/Fxml/Popup/SolicitarSenha.fxml")).load();
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-        return solicitarSenha;
-    }
 
+    /**
+     * Construtor da classe ViewFactory.
+     */
     public ViewFactory( ) {
         this.selecionarOpcaoCliente = new SimpleStringProperty("");
     }
+
+
+    /**
+     * Retorna a propriedade selecionarOpcaoCliente.
+     *
+     * @return A StringProperty selecionarOpcaoCliente.
+     */
 
     public StringProperty getSelecionarOpcaoCliente() {
         return selecionarOpcaoCliente;
     }
 
-    //Menu Esquerdo de Opções do Cliente
-
+    /**
+     * Retorna a view do histórico de serviços.  (Menu Esquerdo)
+     * @return A AnchorPane do histórico de serviços.
+     */
     public AnchorPane getViewHistoricoServico(){
         if (viewHistoricoServico == null) {
             try {
@@ -62,6 +65,11 @@ public class ViewFactory {
 
         return viewHistoricoServico;
     }
+    /**
+     * Retorna a view da conta.
+     *
+     * @return A AnchorPane da conta.
+     */
     public AnchorPane getContaView(){
             try {
                 contaView = new FXMLLoader(getClass().getResource("/Fxml/OutrosServicos/Conta.fxml")).load();
@@ -71,7 +79,11 @@ public class ViewFactory {
             }
         return contaView;
     }
-
+    /**
+     * Retorna a view dos cartões.
+     *
+     * @return A AnchorPane dos cartões.
+     */
     public AnchorPane getCartoesView(){
         if(cartoesView == null) {
             try {
@@ -82,7 +94,11 @@ public class ViewFactory {
         }
         return cartoesView;
     }
-
+    /**
+     * Retorna a view dos empréstimos.
+     *
+     * @return A AnchorPane dos empréstimos.
+     */
     public AnchorPane getEmprestimoView(){
         if (emprestimoView == null){
             try {
@@ -94,7 +110,11 @@ public class ViewFactory {
         }
         return emprestimoView;
     }
-
+    /**
+     * Retorna a view do menu de serviços.
+     *
+     * @return A AnchorPane do menu de serviços.
+     */
     public AnchorPane getMenuServicosView(){
         if (menuServicosView == null){
             try {
@@ -106,7 +126,11 @@ public class ViewFactory {
         }
         return menuServicosView;
     }
-
+    /**
+     * Retorna a view de transferências.
+     *
+     * @return A AnchorPane de transferências.
+     */
     public AnchorPane getTransferenciaView() {
         if (transferenciaView == null){
             try {
@@ -121,7 +145,11 @@ public class ViewFactory {
         return transferenciaView;
     }
 
-    //Pagamento de boleto
+    /**
+     * Retorna a view de pagamento de boleto.
+     *
+     * @return A AnchorPane de pagamento de boleto.
+     */
 
     public AnchorPane getPagarBoletoView(){
 if (pagarBoletoView == null){
@@ -134,6 +162,11 @@ if (pagarBoletoView == null){
 }
         return pagarBoletoView;
     }
+    /**
+     * Retorna a view de confirmação de pagamento de boleto.
+     *
+     * @return A AnchorPane de confirmação de pagamento de boleto.
+     */
     public AnchorPane getConfirmaPagarBoletoView(){
         if (confirmarBoletoView == null){
             try {
@@ -146,7 +179,11 @@ if (pagarBoletoView == null){
         return confirmarBoletoView;
     }
 
-    //Historico Servico
+    /**
+     * Retorna a view do histórico de serviços.
+     *
+     * @return A AnchorPane do histórico de serviços.
+     */
     public AnchorPane getHistoricoServicoView(){
             try {
                 historicoServicoView = new FXMLLoader(getClass().getResource("/Fxml/HistoricoTransacaoServicos/HistoricoServico.fxml")).load();
@@ -157,9 +194,11 @@ if (pagarBoletoView == null){
         return historicoServicoView;
     }
 
-    //Recarga Celular
-
-
+    /**
+     * Retorna a view de recarga de celular.
+     *
+     * @return A AnchorPane de recarga de celular.
+     */
     public AnchorPane getRecargaCelularView() {
             try{
                 recargaCelularView = new FXMLLoader(getClass().getResource("/Fxml/Celular/Recarga.fxml")).load();
@@ -168,22 +207,27 @@ if (pagarBoletoView == null){
             }
         return recargaCelularView;
     }
+    /**
+     * Solicita a senha, exibindo o popup correspondente.
+     */
     public void solicitarSenha(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Popup/SolicitarSenha.fxml"));
-//        MenuClienteController menuClienteController = new MenuClienteController();
-//        loader.setController(menuClienteController);
         criarStage(loader);
     }
-
-
+    /**
+     * Exibe o menu do cliente.
+     */
     public void mostrarClienteMenu(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/MenuCliente.fxml"));
         MenuClienteController menuClienteController = new MenuClienteController();
         loader.setController(menuClienteController);
         criarStage(loader);
     }
-
-
+    /**
+     * Cria e exibe uma nova janela (Stage) a partir do loader fornecido.
+     *
+     * @param loader O FXMLLoader a ser utilizado para carregar o layout.
+     */
     private static void criarStage(FXMLLoader loader) {
         Scene scene = null;
         try{
@@ -197,9 +241,11 @@ if (pagarBoletoView == null){
         stage.show();
     }
 
-
-
-
+    /**
+     * Atualiza a opção selecionada do cliente.
+     *
+     * @param botaoOpcao A nova opção selecionada.
+     */
     public void atualizarOpcao(String botaoOpcao){
         Model.getInstance().getViewFactory().getSelecionarOpcaoCliente().set(botaoOpcao);
 

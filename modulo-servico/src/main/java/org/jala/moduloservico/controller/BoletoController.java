@@ -24,7 +24,9 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 import static org.jala.moduloservico.model.enums.TipoServicos.BOLETO;
-
+/**
+ * Controlador para gerenciar a interface de usuário relacionada a boletos.
+ */
 public class BoletoController implements Initializable {
 
     @FXML
@@ -61,7 +63,12 @@ public class BoletoController implements Initializable {
 
     private BoletoService boletoService;
 
-
+    /**
+     * Inicializa o controlador.
+     *
+     * @param url            o URL utilizado para resolver caminhos relativos para o objeto raiz ou null se o local não é conhecido.
+     * @param resourceBundle o ResourceBundle para localizar objetos raiz ou null se o recurso não é especificado.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addListeners();
@@ -72,6 +79,9 @@ public class BoletoController implements Initializable {
 
 
     }
+    /**
+     * Adiciona os listeners aos botões.
+     */
     private void addListeners(){
         gerar_boleto.setOnAction(event -> {
             if (validarCamposBoleto()) {
@@ -100,6 +110,9 @@ public class BoletoController implements Initializable {
 
 
     }
+    /**
+     * Solicita a confirmação da senha antes de realizar a transação.
+     */
     private void solicitarConfirmacaoSenha() {
         SenhaUtil.solicitarSenha(senhaCorreta -> {
             if (senhaCorreta) {
@@ -112,14 +125,23 @@ public class BoletoController implements Initializable {
             }
         });
     }
-
+    /**
+     * Realiza a transação.
+     *
+     * @throws SQLException se ocorrer um erro ao acessar o banco de dados.
+     */
     private void realizarTransacao() throws SQLException {
         TransacaoDTO transacaoDTO = infoTransacao();
         FabricaPagamento fabricaPagamento = new FabricaPagamento();
         TransacaoService transacaoService = new TransacaoService(fabricaPagamento, fabricaPagamento.getClienteDAO(), transacaoDTO);
         transacaoService.realizarTransacao();
     }
-
+    /**
+     * Processa o boleto.
+     *
+     * @return o boleto processado.
+     * @throws SQLException se ocorrer um erro ao acessar o banco de dados.
+     */
     private Boleto processarBoleto() throws SQLException {
         LocalDate dataBoletoLocalDate = tranformaLocalDate(data_boleto);
         LocalDate dataBoletoVencimentoLocalDate = tranformaLocalDate(data_vencimento_vencimento);
@@ -133,7 +155,11 @@ public class BoletoController implements Initializable {
         boletoService = new BoletoService();
         return boletoService.gerarBoleto(boletoDTO);
     }
-
+    /**
+     * Valida os campos necessários para a geração de um boleto.
+     *
+     * @return true se os campos estiverem válidos, false caso contrário
+     */
     private boolean validarCamposBoleto(){
         try {
             double valorBoletoInt = Double.parseDouble(valor_boleto.getText());
@@ -144,7 +170,11 @@ public class BoletoController implements Initializable {
         return data_boleto.getValue() != null && data_vencimento_vencimento.getValue() != null;
 
     }
-
+    /**
+     * Exibe as informações do boleto gerado na interface gráfica.
+     *
+     * @param boleto o boleto gerado
+     */
     private void mostrarBoletoGerado(Boleto boleto){
         nome_pagador.setText(boleto.getPagador().getNome());
         cpf_pagador.setText(boleto.getPagador().getDocumento());
@@ -163,11 +193,22 @@ public class BoletoController implements Initializable {
         data_processamento.setVisible(true);
         texto_codigo_boleto.setVisible(true);
     }
-
+    /**
+     * Formata uma data no formato "dd/MM/yyyy".
+     *
+     * @param localDate a data a ser formatada
+     * @return a data formatada como uma String
+     */
     private String formatarData(LocalDate localDate){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy", new Locale("pt", "BR"));
         return localDate.format(formatter);
     }
+    /**
+     * Converte um BigDecimal em uma representação de String formatada.
+     *
+     * @param bigDecimal o BigDecimal a ser convertido
+     * @return a representação formatada como uma String
+     */
     private String toString(BigDecimal bigDecimal) {
         if (bigDecimal == null) {
             return "";
@@ -178,10 +219,20 @@ public class BoletoController implements Initializable {
         return df.format(bigDecimal);
     }
 
+    /**
+     * Converte um DatePicker em um objeto LocalDate.
+     *
+     * @param escolhaData o DatePicker a ser convertido
+     * @return a data selecionada como um objeto LocalDate
+     */
     private LocalDate tranformaLocalDate(DatePicker escolhaData){
         return escolhaData.getValue();
     }
-
+    /**
+     * Cria um objeto TransacaoDTO com as informações do pagamento do boleto.
+     *
+     * @return o objeto TransacaoDTO com as informações do pagamento do boleto
+     */
     private TransacaoDTO infoTransacao() {
         TransacaoDTO transacaoDTO = new TransacaoDTO();
         transacaoDTO.setTipoServicos(BOLETO);

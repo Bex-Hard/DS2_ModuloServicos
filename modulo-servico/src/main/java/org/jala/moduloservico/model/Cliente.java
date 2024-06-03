@@ -8,6 +8,9 @@ import java.util.List;
 
 public class Cliente {
 
+    /**
+     * Atributos do cliente
+     */
     private Long id;
     private String nome;
     private String cpf;
@@ -19,6 +22,19 @@ public class Cliente {
     private String cidade;
     private String uf;
     private String senha;
+
+
+    /**
+     * Construtor
+     */
+    public Cliente() {
+    }
+
+
+    /**
+     * getters e setters
+     * @return
+     */
 
     public String getSenha() {
         return senha;
@@ -34,15 +50,6 @@ public class Cliente {
 
     public void setCep(String cep) {
         this.cep = cep;
-    }
-
-    public Cliente() {
-    }
-
-    public Cliente(String nome, String cpf) {
-        this.nome = nome;
-        this.cpf = cpf;
-
     }
 
     public String getLogradouro() {
