@@ -95,3 +95,31 @@
     -fx-background-color: #16cbb9; /* Cinza Claro ao pressionar */
     -fx-text-fill:#1C2242;
 }
+.table-view {
+    -fx-background-color: #2e346b;
+    -fx-border-color: #2e346b;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #2e346b;
+    -fx-border-radius: 20 20 0 0;
+    -fx-background-radius: 10 10 0 0;
+}
+
+
+.table-view .column-header, .table-view .filler {
+    -fx-border-width: 0;
+    -fx-background-color: transparent;
+}
+
+.table-view .table-row-cell {
+    -fx-border-color: transparent transparent #2e346b transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-view .table-cell {
+    -fx-padding: 5 10;
+    -fx-border-width: 0;
+}
