@@ -6,6 +6,7 @@ import br.com.caelum.stella.boleto.transformer.GeradorDeBoleto;
 import org.jala.moduloservico.model.Cliente;
 import org.jala.moduloservico.model.DAO.ClienteDAO;
 import org.jala.moduloservico.model.DTO.BoletoDTO;
+import org.jala.moduloservico.util.StartCliente;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -43,7 +44,7 @@ public class BoletoService {
 
         this.banco = new BancoDoBrasil();
         this.clienteDAO = new ClienteDAO();
-        this.cliente = clienteDAO.buscarClientePorId(1L);
+        this.cliente = StartCliente.getInstance().getCliente();
     }
     /**
      * Gera um boleto de pagamento com base nas informações fornecidas no DTO do boleto.
