@@ -9,6 +9,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.jala.moduloservico.model.DAO.HistoricoTransacaoDAO;
 import org.jala.moduloservico.model.Transacao;
+import org.jala.moduloservico.util.StartCliente;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -52,7 +53,7 @@ public class ViewHistoricoServicoController implements Initializable {
         transacaoList = FXCollections.observableArrayList();
 
         carregarTabela();
-        atualizarTransacoes(1L);
+        atualizarTransacoes(StartCliente.getInstance().getCliente().getId());
     }
     /**
      * Configura as colunas da tabela para exibir as propriedades das transações.
@@ -64,7 +65,6 @@ public class ViewHistoricoServicoController implements Initializable {
         id_transacao.setCellValueFactory(new PropertyValueFactory<>("idTransacao"));
         tipo_servico.setCellValueFactory(new PropertyValueFactory<>("tipoServico"));
         data.setCellValueFactory(new PropertyValueFactory<>("dataHoraTransacao"));
-
 
     }
     /**

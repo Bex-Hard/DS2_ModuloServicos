@@ -1,5 +1,6 @@
 package org.jala.moduloservico.controller;
 
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,11 +14,17 @@ import java.util.ResourceBundle;
  * Controlador para confirmar o pagamento.
  */
 public class ConfirmarPagamentoController implements Initializable {
+    @FXML
     public Label msg_erro;
+    @FXML
     public Button confirmar;
+    @FXML
     public TextField senha_usuario;
+    @FXML
     public VBox solicitar_senha;
+    @FXML
     public VBox sucesso_transacao;
+
     private SenhaVerificacaoListener listener;
     private String senhaClienteBD;
 

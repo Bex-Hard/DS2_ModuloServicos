@@ -17,7 +17,6 @@ public class TransacaoService {
     private ClienteDAO clienteDAO;
     private TransacaoDTO transacaoDTO;
 
-    private HistoricoTransacaoDAO historicoTransacaoDAO = new HistoricoTransacaoDAO();
 
     /**
      * Construtor da classe TransacaoService.
