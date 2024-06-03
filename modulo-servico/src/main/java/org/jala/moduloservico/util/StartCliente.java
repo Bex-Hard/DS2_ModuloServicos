@@ -19,7 +19,7 @@ public class StartCliente {
     private StartCliente() {
         this.clienteDAO = new ClienteDAO();
         try {
-            this.cliente = clienteDAO.buscarClientePorId(1L);
+            this.cliente = clienteDAO.buscarClientePorId(3L);
         } catch (SQLException e) {
             e.printStackTrace();
         }

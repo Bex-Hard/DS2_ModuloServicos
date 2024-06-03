@@ -72,10 +72,21 @@
          * @param descricao
          * @param confirmacao
          */
-        public Transacao(Long idUser, String nomeCliente, String numeroConta, String cpfCnpj, String emailCliente,
-                         String idTransacao, TipoPagamento tipoPagamento, double valor, String dataHoraTransacao,
-                         String moeda, String contaOrigem, String contaDestino,
-                         TipoServicos tipoServico, String numeroCartao, String descricao,
+        public Transacao(Long idUser,
+                         String nomeCliente,
+                         String numeroConta,
+                         String cpfCnpj,
+                         String emailCliente,
+                         String idTransacao,
+                         TipoPagamento tipoPagamento,
+                         double valor,
+                         String dataHoraTransacao,
+                         String moeda,
+                         String contaOrigem,
+                         String contaDestino,
+                         TipoServicos tipoServico,
+                         String numeroCartao,
+                         String descricao,
                          Boolean confirmacao) {
 
             this.idUser = idUser;

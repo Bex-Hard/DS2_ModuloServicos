@@ -28,7 +28,6 @@ public class ViewFactory {
     private AnchorPane confirmarBoletoView;
     private AnchorPane historicoServicoView;
     private AnchorPane recargaCelularView;
-    private GridPane solicitarSenha;
     private AnchorPane viewHistoricoServico;
 
 

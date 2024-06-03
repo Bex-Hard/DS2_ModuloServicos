@@ -28,7 +28,7 @@ public class CartaoCredito
      * @return
      */
     public boolean usarCredito(double valor) {
-        if (saldoUtilizado + valor <= limite) {
+        if (valor <= limite) {
             saldoUtilizado += valor;
             limite -= valor;
             return true;

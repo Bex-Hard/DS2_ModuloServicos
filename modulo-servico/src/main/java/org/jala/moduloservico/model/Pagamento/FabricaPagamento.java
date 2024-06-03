@@ -3,6 +3,7 @@ package org.jala.moduloservico.model.Pagamento;
 import org.jala.moduloservico.model.Cliente;
 import org.jala.moduloservico.model.DAO.ClienteDAO;
 import org.jala.moduloservico.model.enums.TipoPagamento;
+import org.jala.moduloservico.util.StartCliente;
 
 import java.sql.SQLException;
 /**
@@ -21,7 +22,7 @@ public class FabricaPagamento {
      */
     public FabricaPagamento() throws SQLException {
         this.clienteDAO = inicarCliente();
-        this.cliente = clienteDAO.buscarClientePorId(1L);
+        this.cliente = StartCliente.getInstance().getCliente();
     }
 
     /**
