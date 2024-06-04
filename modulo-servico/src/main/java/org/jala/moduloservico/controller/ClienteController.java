@@ -27,6 +27,12 @@ public class ClienteController extends ClienteDAO implements Initializable {
     public Label agencia_cliente;
     @FXML
     public Label conta_cliente;
+    @FXML
+    public Label limite_cartao;
+    @FXML
+    public Label numero_cartao;
+    @FXML
+    public Label saldo_cartao;
 
     public Cliente cliente = StartCliente.getInstance().getCliente();
 
@@ -59,6 +65,9 @@ public class ClienteController extends ClienteDAO implements Initializable {
         email_cliente.setText(cliente.getEmail());
         agencia_cliente.setText(cliente.getContaCorrente().getNumeroAgencia());
         conta_cliente.setText(cliente.getContaCorrente().getNumeroConta());
+        saldo_cartao.setText(String.valueOf(cliente.getContaCorrente().getCartao().getSaldoUtilizado()));
+        limite_cartao.setText(String.valueOf(cliente.getContaCorrente().getCartao().getLimite()));
+        numero_cartao.setText((cliente.getContaCorrente().getCartao().getNumeroCartao()));
     }
 
     /**
