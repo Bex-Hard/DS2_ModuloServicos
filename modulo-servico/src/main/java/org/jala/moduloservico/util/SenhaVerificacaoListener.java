@@ -9,4 +9,5 @@ public interface SenhaVerificacaoListener {
      * @param senhaCorreta Indica se a senha está correta.
      */
     void onSenhaVerificada(boolean senhaCorreta);
+
 }

@@ -29,6 +29,7 @@ public class RecargaCelularController implements Initializable {
     private final String [] metodosPgamento = {"Débito em Conta","Cartão de Crédito"};
     private final String [] operadoras = {"Tim", "Claro", "Vivo","Oi"};
     private final String [] valores = {"R$ 10","R$ 20","R$ 30","R$ 40","R$ 50","R$ 60"};
+    private TransacaoDTO transacaoDTO;
 
     /**
      * Inicializa a tela de recarga de celular.
@@ -38,6 +39,7 @@ public class RecargaCelularController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        transacaoDTO = new TransacaoDTO();
         confirmar_pagamento.setOnAction(event -> solicitarConfirmacaoSenha());
         forma_pagamento.getItems().addAll(metodosPgamento);
         operadoras_list.getItems().addAll(operadoras);
@@ -111,6 +113,7 @@ public class RecargaCelularController implements Initializable {
         SenhaUtil.solicitarSenha(senhaCorreta -> {
             if (senhaCorreta) {
                 try {
+
                     realizarTransacao();
 
                 } catch (SQLException e) {

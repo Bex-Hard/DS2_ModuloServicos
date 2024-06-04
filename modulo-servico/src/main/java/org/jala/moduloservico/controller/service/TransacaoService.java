@@ -1,7 +1,6 @@
 package org.jala.moduloservico.controller.service;
 
 import org.jala.moduloservico.model.DAO.ClienteDAO;
-import org.jala.moduloservico.model.DAO.HistoricoTransacaoDAO;
 import org.jala.moduloservico.model.DTO.TransacaoDTO;
 import org.jala.moduloservico.model.Pagamento.FabricaPagamento;
 import org.jala.moduloservico.model.Pagamento.PagamentoStrategy;
@@ -31,16 +30,17 @@ public class TransacaoService {
         this.transacaoDTO = transacaoDTO;
         this.transacao = new Transacao();
         criarTransacao();
+
     }
     /**
      * Realiza a transação de pagamento.
      *
      * @throws SQLException se ocorrer um erro ao realizar a transação no banco de dados
      */
-    public void realizarTransacao() throws SQLException {
+    public Boolean realizarTransacao() throws SQLException {
         PagamentoStrategy pagamentoStrategy = pagamentoFactory.getPagamentoStrategy(transacao.getTipoPagamento());
         Double valorDouble = Double.parseDouble(transacaoDTO.getValor());
-        atulizarStatusTransacao(pagamentoStrategy, valorDouble);
+        return fazerPagamento(pagamentoStrategy, valorDouble);
     }
     /**
      * Atualiza o status da transação com base na estratégia de pagamento.
@@ -49,14 +49,17 @@ public class TransacaoService {
      * @param valorDouble o valor da transação
      * @throws SQLException se ocorrer um erro ao acessar o banco de dados
      */
-    private void atulizarStatusTransacao(PagamentoStrategy pagamentoStrategy, Double valorDouble) throws SQLException {
+    private Boolean fazerPagamento(PagamentoStrategy pagamentoStrategy, Double valorDouble) throws SQLException {
         if (pagamentoStrategy.pagar(valorDouble)) {
             transacao.setConfirmacao(true);
+            return true;
         }
         else {
             transacao.setConfirmacao(false);
+            return false;
         }
     }
+
     /**
      * Cria a transação com base nas informações do DTO de transação.
      */

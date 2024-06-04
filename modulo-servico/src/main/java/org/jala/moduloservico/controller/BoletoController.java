@@ -12,6 +12,7 @@ import org.jala.moduloservico.model.DTO.TransacaoDTO;
 import org.jala.moduloservico.model.Pagamento.FabricaPagamento;
 import org.jala.moduloservico.model.enums.TipoPagamento;
 import org.jala.moduloservico.util.SenhaUtil;
+import org.jala.moduloservico.util.StartCliente;
 import org.jala.moduloservico.util.ValidacaoInputUsuario;
 
 import java.math.BigDecimal;
@@ -117,8 +118,10 @@ public class BoletoController implements Initializable {
         SenhaUtil.solicitarSenha(senhaCorreta -> {
             if (senhaCorreta) {
                 try {
-                    realizarTransacao();
+                    if(!realizarTransacao()){
+                        SenhaUtil.saldoInsuficiente();
 
+                    }
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -130,11 +133,11 @@ public class BoletoController implements Initializable {
      *
      * @throws SQLException se ocorrer um erro ao acessar o banco de dados.
      */
-    private void realizarTransacao() throws SQLException {
+    private boolean realizarTransacao() throws SQLException {
         TransacaoDTO transacaoDTO = infoTransacao();
         FabricaPagamento fabricaPagamento = new FabricaPagamento();
         TransacaoService transacaoService = new TransacaoService(fabricaPagamento, fabricaPagamento.getClienteDAO(), transacaoDTO);
-        transacaoService.realizarTransacao();
+        return transacaoService.realizarTransacao();
     }
     /**
      * Processa o boleto.
