@@ -54,7 +54,7 @@
       </Label>
       <Label fx:id="limite_cartao" layoutX="10.0" layoutY="154.0" text="limite_cartao">
          <graphic>
-            <Label text="Limite:"/>
+            <Label text="Limite Cartão:"/>
          </graphic>
       </Label>
       <Label fx:id="saldo_cartao" layoutX="10.0" layoutY="250.0" text="saldo_utilizado">
