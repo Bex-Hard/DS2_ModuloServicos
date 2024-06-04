@@ -28,7 +28,7 @@ public class ViewFactory {
     private AnchorPane confirmarBoletoView;
     private AnchorPane historicoServicoView;
     private AnchorPane recargaCelularView;
-    private AnchorPane viewHistoricoServico;
+    private AnchorPane carregarCartaoTransporte;
 
 
     /**
@@ -49,21 +49,6 @@ public class ViewFactory {
         return selecionarOpcaoCliente;
     }
 
-    /**
-     * Retorna a view do histórico de serviços.  (Menu Esquerdo)
-     * @return A AnchorPane do histórico de serviços.
-     */
-    public AnchorPane getViewHistoricoServico(){
-        if (viewHistoricoServico == null) {
-            try {
-                viewHistoricoServico = new FXMLLoader(getClass().getResource("/Fxml/HistoricoTransacaoServicos/ViewHistoricoServico.fxml")).load();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        return viewHistoricoServico;
-    }
     /**
      * Retorna a view da conta.
      *
@@ -185,7 +170,7 @@ if (pagarBoletoView == null){
      */
     public AnchorPane getHistoricoServicoView(){
             try {
-                historicoServicoView = new FXMLLoader(getClass().getResource("/Fxml/HistoricoTransacaoServicos/HistoricoServico.fxml")).load();
+                historicoServicoView = new FXMLLoader(getClass().getResource("/Fxml/HistoricoTransacaoServicos/ViewHistoricoServico.fxml")).load();
             }
             catch (Exception e){
                 e.printStackTrace();
@@ -206,6 +191,19 @@ if (pagarBoletoView == null){
             }
         return recargaCelularView;
     }
+
+    /**
+     * Retorna a view de recarga de cartão de transporte.
+     * @return A AnchorPane de recarga de cartão de transporte.
+     */
+    public AnchorPane getCartaoTransporte(){
+        try {
+            carregarCartaoTransporte = new FXMLLoader(getClass().getResource("/Fxml/CartaoTransporte/CartaoTransporte.fxml")).load();
+        }catch (Exception e){e.printStackTrace();}
+
+        return carregarCartaoTransporte;
+    }
+
     /**
      * Solicita a senha, exibindo o popup correspondente.
      */

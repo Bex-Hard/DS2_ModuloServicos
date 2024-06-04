@@ -61,10 +61,24 @@ public class TransacaoService {
      * Cria a transação com base nas informações do DTO de transação.
      */
     private void criarTransacao(){
+        transacao.setIdUser(pagamentoFactory.getCliente().getId());
+//        transacao.setIdTransacao();
+        transacao.setNomeCliente(pagamentoFactory.getCliente().getNome());
+        transacao.setNumeroConta(String.valueOf(pagamentoFactory.getCliente().getContaCorrente()));
+        transacao.setCpfCnpj(pagamentoFactory.getCliente().getCpf());
+        transacao.setEmailCliente(pagamentoFactory.getCliente().getEmail());
         transacao.setTipoPagamento(transacaoDTO.getTipoPagamento());
-        transacao.setDescricao(transacaoDTO.getDescricao());
-        transacao.setTipoServico(transacaoDTO.getTipoServicos());
         transacao.setValor(Double.parseDouble(transacaoDTO.getValor()));
+//        transacao.setDataHoraTransacao();
+//        transacao.setMoeda();
+        transacao.setContaOrigem(String.valueOf(pagamentoFactory.getCliente().getContaCorrente()));
+//        transacao.setContaDestino();
+        transacao.setTipoServico(transacaoDTO.getTipoServicos());
+//        transacao.setNumeroCartao();
+        transacao.setDescricao(transacaoDTO.getDescricao());
+//        transacao.setConfirmacao();
+
+
 
     }
 

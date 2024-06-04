@@ -21,6 +21,7 @@ import static org.jala.moduloservico.model.DAO.PostgresConnection.getConnection;
  */
 public class HistoricoTransacaoDAO {
 
+
     /**
      * Lista todas as transações de um cliente específico, ordenadas pela data e hora da transação em ordem decrescente.
      *

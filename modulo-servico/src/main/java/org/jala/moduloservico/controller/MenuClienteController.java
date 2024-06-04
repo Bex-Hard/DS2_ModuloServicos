@@ -35,7 +35,7 @@ public class MenuClienteController implements Initializable {
                         case "ConfirmaBoleto" -> menu_principal.setCenter(Model.getInstance().getViewFactory().getConfirmaPagarBoletoView());
                         case "Celular" -> menu_principal.setCenter((Model.getInstance().getViewFactory().getRecargaCelularView()));
                         case "Senha" -> Model.getInstance().getViewFactory().solicitarSenha();
-                        case "HistoricoFiltrado" -> menu_principal.setCenter(Model.getInstance().getViewFactory().getViewHistoricoServico());
+                        case "Transporte" -> menu_principal.setCenter(Model.getInstance().getViewFactory().getCartaoTransporte());
 
                         default -> menu_principal.setCenter(Model.getInstance().getViewFactory().getMenuServicosView());
                     }

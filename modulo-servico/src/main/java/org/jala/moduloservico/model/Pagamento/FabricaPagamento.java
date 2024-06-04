@@ -21,7 +21,7 @@ public class FabricaPagamento {
      * @throws SQLException se ocorrer um erro ao acessar o banco de dados.
      */
     public FabricaPagamento() throws SQLException {
-        this.clienteDAO = inicarCliente();
+        this.clienteDAO = new ClienteDAO();
         this.cliente = StartCliente.getInstance().getCliente();
     }
 
@@ -43,17 +43,10 @@ public class FabricaPagamento {
     public PagamentoStrategy getPagamentoStrategy(TipoPagamento tipoPagamento) throws SQLException {
         return switch (tipoPagamento) {
             case CARTAO_CREDITO -> new PagamentoCartaoCredito(this.clienteDAO, cliente);
-            case DEBITO -> new PagamentoDebitoConta(this.clienteDAO,cliente);
+            case DEBITO_CONTA -> new PagamentoDebitoConta(this.clienteDAO,cliente);
         };
     }
-    /**
-     * Inicializa o DAO do cliente.
-     *
-     * @return uma instância de ClienteDAO.
-     */
-    public ClienteDAO inicarCliente(){
-        return new ClienteDAO();
-    }
+
     /**
      * Retorna o DAO do cliente.
      *

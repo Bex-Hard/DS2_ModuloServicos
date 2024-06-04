@@ -63,5 +63,27 @@ public class ValidacaoInputUsuario {
             }
         });
     }
+    /**
+     * Adiciona validação ao TextField para permitir apenas números inteiros e
+     * limita o comprimento máximo a 16 caracteres.
+     *
+     * @param textField o campo de texto a ser validado
+     */
+    public static void addCardValidation(TextField textField) {
+        // Adiciona um ChangeListener ao TextField
+        textField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                // Permite apenas números inteiros
+                if (!newValue.matches("\\d*")) {
+                    textField.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+                // Limita o comprimento máximo a 16 caracteres
+                if (newValue.length() > 16) {
+                    textField.setText(oldValue);
+                }
+            }
+        });
+    }
 
 }

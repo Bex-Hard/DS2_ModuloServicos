@@ -236,7 +236,7 @@ public class BoletoController implements Initializable {
     private TransacaoDTO infoTransacao() {
         TransacaoDTO transacaoDTO = new TransacaoDTO();
         transacaoDTO.setTipoServicos(BOLETO);
-        transacaoDTO.setTipoPagamento(TipoPagamento.DEBITO);
+        transacaoDTO.setTipoPagamento(TipoPagamento.DEBITO_CONTA);
         transacaoDTO.setValor(valor_boleto.getText());
         transacaoDTO.setDescricao("Pagamento de boleto");
         return transacaoDTO;

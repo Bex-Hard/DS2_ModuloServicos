@@ -1,5 +1,7 @@
 package org.jala.moduloservico.model;
 
+import org.jala.moduloservico.model.enums.TipoServicos;
+
 public class ContaCorrente {
     /**
      * Atributos da Conta Corrente
@@ -10,6 +12,7 @@ public class ContaCorrente {
     private String numeroConta;
     private double saldo;
     private CartaoCredito cartao;
+    private String tipoServicos;
 
     /**
      * Método que cria a lógica e regras de uso do saldo
@@ -24,10 +27,21 @@ public class ContaCorrente {
         return false;
     }
 
+
     /**
      * getters e setters
      * @return
      */
+
+    public String getTipoServicos() {
+        return tipoServicos;
+    }
+
+    public void setTipoServicos(TipoServicos tipoServicos) {
+        String tipo = (String.valueOf(tipoServicos));
+        this.tipoServicos = tipo;
+    }
+
     public long getId() {
         return id;
     }

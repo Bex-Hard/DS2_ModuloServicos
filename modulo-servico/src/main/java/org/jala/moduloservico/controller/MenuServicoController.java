@@ -30,8 +30,6 @@ public class MenuServicoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addListeners();
-
-
     }
     /**
      * Adiciona os ouvintes de eventos aos botões.
@@ -40,6 +38,7 @@ public class MenuServicoController implements Initializable {
         boleto_botao.setOnAction(event -> Model.getInstance().getViewFactory().atualizarOpcao("Boleto"));
         historico_servico.setOnAction(event -> Model.getInstance().getViewFactory().atualizarOpcao("Historico"));
         celular_botao.setOnAction(event -> Model.getInstance().getViewFactory().atualizarOpcao("Celular"));
+        bilhete_botao.setOnAction(event -> Model.getInstance().getViewFactory().atualizarOpcao("Transporte"));
 
 
     }

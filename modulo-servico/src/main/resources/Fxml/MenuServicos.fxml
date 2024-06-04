@@ -26,7 +26,7 @@
         <Button fx:id="celular_botao" mnemonicParsing="false" styleClass="botao_boleto" text="Recarregar" />
     </VBox>
     <VBox layoutX="525.0" layoutY="141.0" prefHeight="146.0" prefWidth="172.0" styleClass="menu_container_boleto">
-      <Label text="VEM" />
+      <Label text="Cartao de Transporte" />
         <Button fx:id="bilhete_botao" mnemonicParsing="false" styleClass="botao_boleto" text="Recarregar" />
     </VBox>
     <VBox layoutX="525.0" layoutY="307.0" prefHeight="146.0" prefWidth="172.0" styleClass="menu_container_boleto">

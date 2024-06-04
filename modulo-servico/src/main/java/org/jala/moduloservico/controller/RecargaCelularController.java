@@ -93,7 +93,7 @@ public class RecargaCelularController implements Initializable {
     private TipoPagamento setTipoPagamento() {
         switch (forma_pagamento.getValue().toString()) {
             case "Débito em Conta" -> {
-                return TipoPagamento.DEBITO;
+                return TipoPagamento.DEBITO_CONTA;
             }
             case "Cartão de Crédito" -> {
                 return TipoPagamento.CARTAO_CREDITO;

@@ -4,5 +4,5 @@ package org.jala.moduloservico.model.enums;
  */
 public enum TipoPagamento {
     CARTAO_CREDITO,
-    DEBITO
+    DEBITO_CONTA
 }
