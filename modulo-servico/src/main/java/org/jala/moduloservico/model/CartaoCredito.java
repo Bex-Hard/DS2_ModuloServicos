@@ -55,6 +55,10 @@ public class CartaoCredito
         this.validade = validade;
     }
 
+    public String getNumeroCartao() {
+        return numeroCartao;
+    }
+
     public void setCvv(String cvv) {
         this.cvv = cvv;
     }

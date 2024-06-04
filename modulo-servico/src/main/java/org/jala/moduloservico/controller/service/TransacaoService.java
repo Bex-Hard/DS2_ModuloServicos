@@ -62,21 +62,20 @@ public class TransacaoService {
      */
     private void criarTransacao(){
         transacao.setIdUser(pagamentoFactory.getCliente().getId());
-//        transacao.setIdTransacao();
         transacao.setNomeCliente(pagamentoFactory.getCliente().getNome());
         transacao.setNumeroConta(String.valueOf(pagamentoFactory.getCliente().getContaCorrente()));
         transacao.setCpfCnpj(pagamentoFactory.getCliente().getCpf());
         transacao.setEmailCliente(pagamentoFactory.getCliente().getEmail());
         transacao.setTipoPagamento(transacaoDTO.getTipoPagamento());
         transacao.setValor(Double.parseDouble(transacaoDTO.getValor()));
-//        transacao.setDataHoraTransacao();
-//        transacao.setMoeda();
-        transacao.setContaOrigem(String.valueOf(pagamentoFactory.getCliente().getContaCorrente()));
-//        transacao.setContaDestino();
+//      transacao.setDataHoraTransacao();
+        transacao.setMoeda("R$");
+        transacao.setContaOrigem(String.valueOf(pagamentoFactory.getCliente().getContaCorrente().getNumeroConta()));
+        transacao.setContaDestino(null);
         transacao.setTipoServico(transacaoDTO.getTipoServicos());
-//        transacao.setNumeroCartao();
+        transacao.setNumeroCartao(pagamentoFactory.getCliente().getContaCorrente().getCartao().getNumeroCartao());
         transacao.setDescricao(transacaoDTO.getDescricao());
-//        transacao.setConfirmacao();
+        transacao.setConfirmacao(true);
 
 
 

@@ -212,13 +212,14 @@
             this.tipoPagamento = tipoPagamento;
         }
 
-        public TipoServicos getTipoServico() {
-            return tipoServico;
+        public String getTipoServico() {
+            return (String.valueOf(tipoServico));
         }
 
         public void setTipoServico(TipoServicos tipoServico) {
             this.tipoServico = tipoServico;
         }
+
 
         public Boolean getConfirmacao() {
             return confirmacao;
