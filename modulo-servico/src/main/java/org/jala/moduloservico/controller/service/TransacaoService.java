@@ -1,10 +1,13 @@
 package org.jala.moduloservico.controller.service;
 
 import org.jala.moduloservico.model.DAO.ClienteDAO;
+import org.jala.moduloservico.model.DAO.TransacaoDAO;
 import org.jala.moduloservico.model.DTO.TransacaoDTO;
 import org.jala.moduloservico.model.Pagamento.FabricaPagamento;
 import org.jala.moduloservico.model.Pagamento.PagamentoStrategy;
 import org.jala.moduloservico.model.Transacao;
+import org.jala.moduloservico.model.enums.TipoPagamento;
+import org.jala.moduloservico.model.enums.TipoServicos;
 
 import java.sql.SQLException;
 /**
@@ -15,6 +18,7 @@ public class TransacaoService {
     private FabricaPagamento pagamentoFactory;
     private ClienteDAO clienteDAO;
     private TransacaoDTO transacaoDTO;
+    private TransacaoDAO transacaoDAO;
 
 
     /**
@@ -29,6 +33,7 @@ public class TransacaoService {
         this.clienteDAO = clienteDAO;
         this.transacaoDTO = transacaoDTO;
         this.transacao = new Transacao();
+        this.transacaoDAO = new TransacaoDAO();
         criarTransacao();
 
     }
@@ -52,10 +57,12 @@ public class TransacaoService {
     private Boolean fazerPagamento(PagamentoStrategy pagamentoStrategy, Double valorDouble) throws SQLException {
         if (pagamentoStrategy.pagar(valorDouble)) {
             transacao.setConfirmacao(true);
+            transacaoDAO.criarTransacao(transacao);
             return true;
         }
         else {
             transacao.setConfirmacao(false);
+            transacaoDAO.criarTransacao(transacao);
             return false;
         }
     }
@@ -66,21 +73,17 @@ public class TransacaoService {
     private void criarTransacao(){
         transacao.setIdUser(pagamentoFactory.getCliente().getId());
         transacao.setNomeCliente(pagamentoFactory.getCliente().getNome());
-        transacao.setNumeroConta(String.valueOf(pagamentoFactory.getCliente().getContaCorrente()));
+        transacao.setNumeroConta(pagamentoFactory.getCliente().getContaCorrente().getNumeroConta());
         transacao.setCpfCnpj(pagamentoFactory.getCliente().getCpf());
         transacao.setEmailCliente(pagamentoFactory.getCliente().getEmail());
-        transacao.setTipoPagamento(transacaoDTO.getTipoPagamento());
+        transacao.setTipoPagamento(TipoPagamento.valueOf(String.valueOf(transacaoDTO.getTipoPagamento())));
         transacao.setValor(Double.parseDouble(transacaoDTO.getValor()));
-//      transacao.setDataHoraTransacao();
         transacao.setMoeda("R$");
-        transacao.setContaOrigem(String.valueOf(pagamentoFactory.getCliente().getContaCorrente().getNumeroConta()));
+        transacao.setContaOrigem(pagamentoFactory.getCliente().getContaCorrente().getNumeroConta());
         transacao.setContaDestino(null);
-        transacao.setTipoServico(transacaoDTO.getTipoServicos());
+        transacao.setTipoServico(TipoServicos.valueOf(String.valueOf(transacaoDTO.getTipoServicos())));
         transacao.setNumeroCartao(pagamentoFactory.getCliente().getContaCorrente().getCartao().getNumeroCartao());
         transacao.setDescricao(transacaoDTO.getDescricao());
-        transacao.setConfirmacao(true);
-
-
 
     }
 

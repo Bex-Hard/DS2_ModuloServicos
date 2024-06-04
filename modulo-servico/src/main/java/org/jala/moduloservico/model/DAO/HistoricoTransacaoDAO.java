@@ -42,13 +42,14 @@ public class HistoricoTransacaoDAO {
                             .toLocalDateTime()
                             .format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
 
+
                     Transacao transacao = new Transacao(
                             rs.getLong("id_user"),
                             rs.getString("nome_cliente"),
                             rs.getString("numero_conta"),
                             rs.getString("cpf_cnpj"),
                             rs.getString("email_cliente"),
-                            rs.getString("id_transacao"),
+                            rs.getString("id"),
                             TipoPagamento.valueOf(rs.getString("tipo_pagamento")),
                             rs.getDouble("valor"),
                             dataHoraFormatada,
